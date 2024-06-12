@@ -1,1 +1,1 @@
-# snus-skala
+# snus-scada
