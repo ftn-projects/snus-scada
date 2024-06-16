@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DatabaseManager.Infrastructure.View;
 
 namespace DatabaseManager
 {
@@ -10,6 +6,8 @@ namespace DatabaseManager
     {
         static void Main(string[] args)
         {
+            LoginView view = new LoginView();
+            view.Init();
         }
     }
 }
