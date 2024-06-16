@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="286a6595-54fd-4252-8319-3d97d6f6de60" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51016/Infrastructure/Trending.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Trending.disco" MetadataType="Disco" ID="b7c1286f-697b-4f8e-95ff-6615f4cc02e4" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?disco" />
+    <MetadataFile FileName="Trending.wsdl" MetadataType="Wsdl" ID="23d58325-f90b-4b16-8705-44fbae78291b" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?wsdl" />
+    <MetadataFile FileName="Trending.xsd" MetadataType="Schema" ID="308e2425-4225-4c2a-b6c2-f09abbc93b68" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?xsd=xsd0" />
+    <MetadataFile FileName="Trending1.xsd" MetadataType="Schema" ID="dd56cdbe-6612-4833-aa28-152fee16629d" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?xsd=xsd1" />
+    <MetadataFile FileName="Trending2.xsd" MetadataType="Schema" ID="5d394a28-3297-4a29-be40-859476c71c6b" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?xsd=xsd2" />
+    <MetadataFile FileName="Trending3.xsd" MetadataType="Schema" ID="2f47e809-04ae-423a-8f95-afeacc581381" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/Trending.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

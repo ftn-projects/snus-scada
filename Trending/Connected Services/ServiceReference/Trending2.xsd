@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51016/Infrastructure/Trending.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
+  <xs:complexType name="InputTagValue">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="DriverType" type="q1:DriverType" />
+      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InputTagValue" nillable="true" type="tns:InputTagValue" />
+</xs:schema>

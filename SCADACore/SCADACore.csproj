@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Infrastructure\DatabaseManager.svc" />
+    <Content Include="Infrastructure\Trending.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -110,6 +111,9 @@
     <Compile Include="Infrastructure\Service\IAuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\ITagService.cs" />
     <Compile Include="Infrastructure\Service\TagService.cs" />
+    <Compile Include="Infrastructure\Trending.svc.cs">
+      <DependentUpon>Trending.svc</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Utils\DataEncryptionUtils.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
