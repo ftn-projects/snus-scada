@@ -10,7 +10,7 @@ namespace SCADACore.Infrastructure.Service
     public class AuthenticationService : IAuthenticationService
     {
         
-        private static Dictionary<string, User> _authenticatedUsers = new Dictionary<string, User>();
+        private Dictionary<string, User> _authenticatedUsers = new Dictionary<string, User>();
 
         public bool IsAuthenticated(string token)
         {

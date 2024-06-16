@@ -12,6 +12,12 @@ namespace SCADACore.Infrastructure
     public interface IDatabaseManager
     {
         [OperationContract]
-        void DoWork();
+        bool TurnScanOn(string token, string tagName);
+        [OperationContract]
+        bool TurnScanOff(string token, string tagName);
+        [OperationContract]
+        bool ChangeOutputValue(string token, string tagName, double newValue);
+        [OperationContract]
+        bool GetOutputValue(string token, string tagName);
     }
 }

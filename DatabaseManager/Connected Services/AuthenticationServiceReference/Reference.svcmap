@@ -22,8 +22,11 @@
     <MetadataSource Address="http://localhost:51016/Infrastructure/DatabaseManager.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="DatabaseManager.disco" MetadataType="Disco" ID="ae40e56c-1817-46d4-9c85-baee07ea32c2" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?disco" />
+    <MetadataFile FileName="DatabaseManager2.xsd" MetadataType="Schema" ID="8c3b8657-1df2-4184-bf71-dc4249176525" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" />
     <MetadataFile FileName="DatabaseManager.xsd" MetadataType="Schema" ID="b701af8d-ff7b-4cf5-8994-8c8c148427ce" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd1" />
+    <MetadataFile FileName="DatabaseManager21.xsd" MetadataType="Schema" ID="33508dd4-6504-42fe-9098-a55b3d2d6465" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" />
+    <MetadataFile FileName="DatabaseManager.disco" MetadataType="Disco" ID="ae40e56c-1817-46d4-9c85-baee07ea32c2" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?disco" />
+    <MetadataFile FileName="DatabaseManager22.xsd" MetadataType="Schema" ID="38e7f810-c9fa-45c1-9ada-fe1e7c42d85d" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd2" />
     <MetadataFile FileName="DatabaseManager1.xsd" MetadataType="Schema" ID="0ca33a81-fe40-4ae9-a7c2-d575fe28b44e" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd0" />
     <MetadataFile FileName="DatabaseManager.wsdl" MetadataType="Wsdl" ID="a1cc4633-82ef-42c8-83b3-b33a563d9074" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?wsdl" />
   </Metadata>

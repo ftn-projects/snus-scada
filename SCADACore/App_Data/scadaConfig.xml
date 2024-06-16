@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AnalogInputTags>
+  <AnalogInputTag TagName="MyFirstTag" Description="some description" Driver="Realtime" IOAddress="2" ScanTime="10" Scan="true" LowLimit="5" HighLimit="10" Units="cm" />
+</AnalogInputTags>

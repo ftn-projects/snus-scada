@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SCADACore.Infrastructure.Utils;
+using System;
 
 namespace DatabaseManager.Infrastructure.View
 {
     public class MainView
     {
-        public string Token { get; set; }
+        private string Token { get; set; }
         public MainView() { }
         public MainView(string token)
         {
@@ -22,16 +23,19 @@ namespace DatabaseManager.Infrastructure.View
                 switch(option)
                 {
                     case "1":
+                        ChangeOutputValue();
                         break;
                     case "2":
+                        GetOutputValue();
                         break;
                     case "3":
+                        TurnScanOn();
                         break;
                     case "4":
-                        AddTag();
+                        TurnScanOff();
                         break;
                     case "5":
-                        RemoveTag();
+                        TagMenu();
                         break;
                     case "6":
                         Register();
@@ -48,9 +52,9 @@ namespace DatabaseManager.Infrastructure.View
         {
             Console.WriteLine("[1] Change output value");
             Console.WriteLine("[2] Get output value");
-            Console.WriteLine("[3] Turn scan on/off");
-            Console.WriteLine("[4] Add tags");
-            Console.WriteLine("[5] Remove tags");
+            Console.WriteLine("[3] Turn scan on");
+            Console.WriteLine("[4] Turn scan off");
+            Console.WriteLine("[5] Add/Remove tags");
             Console.WriteLine("[6] Register user");
             Console.WriteLine("[q] Logout/Quit");
         }   
@@ -59,10 +63,8 @@ namespace DatabaseManager.Infrastructure.View
         {
             AuthenticationServiceReference.AuthenticationManagerClient authManager = new AuthenticationServiceReference.AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
-            Console.WriteLine("Username:");
-            string username = Console.ReadLine();
-            Console.WriteLine("Password:");
-            string password = Console.ReadLine();
+            string username = InputUtils.ReadStringNotEmpty("Username:"); 
+            string password = InputUtils.ReadStringNotEmpty("Password:");
             if(authManager.Register(username, password)) { Console.WriteLine("Registration successuful"); return; }
             Console.WriteLine("Registration failed");
         }
@@ -73,12 +75,27 @@ namespace DatabaseManager.Infrastructure.View
             authManager.Logout(Token);
         }
         
-        private void AddTag()
+        private void TagMenu()
+        {
+            new TagView(Token).Init();
+        }
+        
+        private void TurnScanOn()
         {
 
         }
 
-        private void RemoveTag()
+        private void TurnScanOff()
+        {
+            string tagName = InputUtils.ReadStringNotEmpty();
+        }
+
+        private void ChangeOutputValue()
+        {
+
+        }
+
+        private void GetOutputValue()
         {
 
         }

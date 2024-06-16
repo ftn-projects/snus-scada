@@ -50,8 +50,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\TagServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Service\InputUtils.cs" />
     <Compile Include="Infrastructure\View\LoginView.cs" />
     <Compile Include="Infrastructure\View\MainView.cs" />
+    <Compile Include="Infrastructure\View\TagView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -64,12 +71,38 @@
     <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager.wsdl" />
+    <None Include="Connected Services\TagServiceReference\DatabaseManager.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AuthenticationServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\TagServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.disco" />
@@ -86,8 +119,21 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Infrastructure\Service\" />
+    <None Include="Connected Services\TagServiceReference\DatabaseManager.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TagServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TagServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TagServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

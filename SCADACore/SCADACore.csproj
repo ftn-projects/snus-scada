@@ -81,12 +81,29 @@
     <Compile Include="Infrastructure\DatabaseManager.svc.cs">
       <DependentUpon>DatabaseManager.svc</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Domain\Alarm.cs" />
+    <Compile Include="Infrastructure\Domain\Enumeration\AlarmType.cs" />
+    <Compile Include="Infrastructure\Domain\Enumeration\DriverType.cs" />
+    <Compile Include="Infrastructure\Domain\Enumeration\EnumUtils.cs" />
+    <Compile Include="Infrastructure\Domain\Enumeration\Priority.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\Abstraction\InputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\Abstraction\OutputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\Abstraction\Tag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\AnalogInputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\AnalogOutputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\DigitalInputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\DigitalOutputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\TagsState.cs" />
     <Compile Include="Infrastructure\Domain\User.cs" />
     <Compile Include="Infrastructure\IAuthenticationManager.cs" />
     <Compile Include="Infrastructure\IDatabaseManager.cs" />
+    <Compile Include="Infrastructure\ITagManager.cs" />
+    <Compile Include="Infrastructure\Repository\TagRepository.cs" />
     <Compile Include="Infrastructure\Repository\UserContext.cs" />
     <Compile Include="Infrastructure\Service\AuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\IAuthenticationService.cs" />
+    <Compile Include="Infrastructure\Service\ITagService.cs" />
+    <Compile Include="Infrastructure\Service\TagService.cs" />
     <Compile Include="Infrastructure\Utils\DataEncryptionUtils.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
