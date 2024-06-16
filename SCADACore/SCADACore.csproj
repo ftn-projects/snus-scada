@@ -95,12 +95,15 @@
     <Compile Include="Infrastructure\Domain\Tag\AnalogOutputTag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\DigitalInputTag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\DigitalOutputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\InputTagValue.cs" />
     <Compile Include="Infrastructure\Domain\Tag\TagsState.cs" />
     <Compile Include="Infrastructure\Domain\User.cs" />
     <Compile Include="Infrastructure\IAlarmManager.cs" />
     <Compile Include="Infrastructure\IAuthenticationManager.cs" />
     <Compile Include="Infrastructure\IDatabaseManager.cs" />
+    <Compile Include="Infrastructure\IDriver.cs" />
     <Compile Include="Infrastructure\ITagManager.cs" />
+    <Compile Include="Infrastructure\ITrending.cs" />
     <Compile Include="Infrastructure\Repository\TagRepository.cs" />
     <Compile Include="Infrastructure\Repository\UserContext.cs" />
     <Compile Include="Infrastructure\Service\AuthenticationService.cs" />
