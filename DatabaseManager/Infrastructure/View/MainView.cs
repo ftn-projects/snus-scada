@@ -130,6 +130,7 @@ namespace DatabaseManager.Infrastructure.View
         {
             string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
             Alarm alarm = new Alarm();
+            alarm.Name = InputUtils.ReadStringNotEmpty("Alarm name (must be unique):");
             alarm.AlarmType = InputUtils.ReadOption<AlarmType>(new AlarmType[] { AlarmType.Low, AlarmType.High }, "Select the alarm's type");
             alarm.Priority = InputUtils.ReadOption<Priority>(new Priority[] {Priority.Low, Priority.Medium, Priority.High}, "Select the alarm's priority");
             alarm.LimitValue = InputUtils.ReadDouble("Limit value:");

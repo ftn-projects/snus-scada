@@ -45,12 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\AuthenticationServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\TagServiceReference\Reference.cs">
+    <Compile Include="Connected Services\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -64,45 +59,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.AuthenticationServiceReference.TagsState.datasource">
+    <None Include="Connected Services\ServiceReference\DatabaseManager.ServiceReference.Alarm.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.wsdl" />
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager21.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager22.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager.TagServiceReference.TagsState.datasource">
+    <None Include="Connected Services\ServiceReference\DatabaseManager.ServiceReference.TagsState.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager.wsdl" />
-    <None Include="Connected Services\TagServiceReference\DatabaseManager.xsd">
+    <None Include="Connected Services\ServiceReference\DatabaseManager.wsdl" />
+    <None Include="Connected Services\ServiceReference\DatabaseManager.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager1.xsd">
+    <None Include="Connected Services\ServiceReference\DatabaseManager1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager2.xsd">
+    <None Include="Connected Services\ServiceReference\DatabaseManager2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager3.xsd">
+    <None Include="Connected Services\ServiceReference\DatabaseManager3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager4.xsd">
+    <None Include="Connected Services\ServiceReference\DatabaseManager4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference\DatabaseManager5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -110,39 +89,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\AuthenticationServiceReference\" />
-    <WCFMetadataStorage Include="Connected Services\TagServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.disco" />
+    <None Include="Connected Services\ServiceReference\DatabaseManager.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AuthenticationServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AuthenticationServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\AuthenticationServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TagServiceReference\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TagServiceReference\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\TagServiceReference\DatabaseManager5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\TagServiceReference\Reference.svcmap">
+    <None Include="Connected Services\ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
