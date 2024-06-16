@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
+using System.Xml.Linq;
 
 namespace SCADACore.Infrastructure.Domain.Tag.Abstraction
 {
     [DataContract]
-    public abstract class Tag
+    public abstract class Tag : ISerializableXml
     {
         [DataMember]
         public string TagName { get; set; }
@@ -16,6 +17,6 @@ namespace SCADACore.Infrastructure.Domain.Tag.Abstraction
         [DataMember]
         public int IOAddress { get; set; }
 
-
+        public abstract XElement GetXmlRepresentation();
     }
 }

@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.AuthenticationServiceReference.TagsState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.wsdl" />
     <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager.xsd">
       <SubType>Designer</SubType>
@@ -79,6 +82,12 @@
     </None>
     <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager22.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\AuthenticationServiceReference\DatabaseManager3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager.TagServiceReference.TagsState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\TagServiceReference\DatabaseManager.wsdl" />
     <None Include="Connected Services\TagServiceReference\DatabaseManager.xsd">
@@ -130,6 +139,9 @@
     <None Include="Connected Services\TagServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\TagServiceReference\DatabaseManager5.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\TagServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

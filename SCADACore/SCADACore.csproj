@@ -86,7 +86,9 @@
     <Compile Include="Infrastructure\Domain\Enumeration\DriverType.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\EnumUtils.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\Priority.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\Abstraction\IDeserializableXml.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\InputTag.cs" />
+    <Compile Include="Infrastructure\Domain\Tag\Abstraction\ISerializableXml.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\OutputTag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\Tag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\AnalogInputTag.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Infrastructure\Domain\Tag\DigitalOutputTag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\TagsState.cs" />
     <Compile Include="Infrastructure\Domain\User.cs" />
+    <Compile Include="Infrastructure\IAlarmManager.cs" />
     <Compile Include="Infrastructure\IAuthenticationManager.cs" />
     <Compile Include="Infrastructure\IDatabaseManager.cs" />
     <Compile Include="Infrastructure\ITagManager.cs" />

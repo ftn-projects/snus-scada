@@ -6,15 +6,15 @@ namespace SCADACore.Infrastructure.Domain.Tag
     public class TagsState
     {
         [DataMember]
-        public AnalogInputTag[] analogInputTags { get; set; }
+        public AnalogInputTag[] AnalogInputTags { get; set; }
 
         [DataMember]
-        public AnalogOutputTag[] analogOutputTags { get; set; }
+        public AnalogOutputTag[] AnalogOutputTags { get; set; }
 
         [DataMember]
-        public DigitalInputTag[] digitalInputTags { get; set; }
+        public DigitalInputTag[] DigitalInputTags { get; set; }
 
         [DataMember]
-        public DigitalOutputTag[] digitalOutputTags { get; set; }
+        public DigitalOutputTag[] DigitalOutputTags { get; set; }
     }
 }

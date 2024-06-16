@@ -18,7 +18,10 @@ namespace SCADACore.Infrastructure.Service
         bool TurnScanOn(string tagName);
         bool TurnScanOff(string tagName);
         bool ChangeOutputValue(string tagName, double newValue);
-        bool GetOutputValue(string tagName);
+        double GetOutputValue(string tagName);
         TagsState GetTagsState();
+        List<Alarm> GetAlarmsForTag(string tagName);
+        bool AddAlarmForTag(string tagName, Alarm alarm);
+        bool RemoveAlarmForTag(string tagName, string alarmName);
     }
 }

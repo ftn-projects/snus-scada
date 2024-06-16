@@ -1,7 +1,9 @@
 ﻿using SCADACore.Infrastructure.Domain;
 using SCADACore.Infrastructure.Domain.Tag;
+using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SCADACore.Infrastructure.Service
@@ -10,97 +12,119 @@ namespace SCADACore.Infrastructure.Service
     {
         private static TagRepository _tagRepository = new TagRepository();
 
+        public bool AddAlarmForTag(string tagName, Alarm alarm)
+        {
+            Tag t = _tagRepository.Tags.Find(x => tagName == x.TagName);
+            if(t != null && t is AnalogInputTag tag)
+            {
+                if (tag.Alarms.Any(x => x.Name == alarm.Name)) return false;
+                tag.Alarms.Add(alarm);
+                return _tagRepository.SaveChanges();
+            }
+            return false;
+
+        }
+
         public bool AddAnalogInputTag(AnalogInputTag analogInputTag)
         {
-            _tagRepository.AnalogInputTags.Add(analogInputTag);
+            if(_tagRepository.Tags.Any(x => x.TagName == analogInputTag.TagName)) return false;
+            _tagRepository.Tags.Add(analogInputTag);
             return _tagRepository.SaveChanges();
         }
 
         public bool AddAnalogOutputTag(AnalogOutputTag analogOutputTag)
         {
-            _tagRepository.AnalogOutputTags.Add(analogOutputTag);
+            if(_tagRepository.Tags.Any(x => x.TagName == analogOutputTag.TagName)) return false;
+            _tagRepository.Tags.Add(analogOutputTag);
             return _tagRepository.SaveChanges();
         }
 
         public bool AddDigitalInputTag(DigitalInputTag digitalInputTag)
         {
-            _tagRepository.DigitalInputTags.Add(digitalInputTag);
+            if(_tagRepository.Tags.Any(x => x.TagName == digitalInputTag.TagName)) return false;
+            _tagRepository.Tags.Add(digitalInputTag);
             return _tagRepository.SaveChanges();
         }
 
         public bool AddDigitalOutputTag(DigitalOutputTag digitalOutputTag)
         {
-            _tagRepository.DigitalOutputTags.Add(digitalOutputTag);
+            if(_tagRepository.Tags.Any(x => x.TagName == digitalOutputTag.TagName)) return false;
+            _tagRepository.Tags.Add(digitalOutputTag);
             return _tagRepository.SaveChanges();
         }
 
         public bool ChangeOutputValue(string tagName, double newValue)
         {
-            throw new NotImplementedException();
+            List<OutputTag> outputTags = _tagRepository.GetTypeOfTags<OutputTag>();
+            OutputTag tag = outputTags.Find(x => x.TagName == tagName);
+            if (tag == null) return false;
+            
+            tag.InitialValue = newValue;
+            return _tagRepository.SaveChanges();
         }
 
-        public bool GetOutputValue(string tagName)
+        public List<Alarm> GetAlarmsForTag(string tagName)
         {
-            throw new NotImplementedException();
+            Tag tag = _tagRepository.Tags.Find(x => x.TagName == tagName);
+            if(tag != null && tag is AnalogInputTag analogInputTag)
+            {
+                if(analogInputTag.Alarms != null && analogInputTag.Alarms.Count() > 0) return analogInputTag.Alarms;
+                return new List<Alarm>();
+            }
+            return new List<Alarm>();
+        }
+
+        public double GetOutputValue(string tagName)
+        {
+            List<OutputTag> outputTags = _tagRepository.GetTypeOfTags<OutputTag>();
+            OutputTag tag = outputTags.Find(x => x.TagName == tagName);
+            if (tag == null) return 0;
+
+            return tag.InitialValue;
+
         }
 
         public TagsState GetTagsState()
         {
             TagsState tags = new TagsState()
             {
-                analogInputTags = _tagRepository.AnalogInputTags.ToArray(),
-                analogOutputTags = _tagRepository.AnalogOutputTags.ToArray(),
-                digitalInputTags = _tagRepository.DigitalInputTags.ToArray(),
-                digitalOutputTags = _tagRepository.DigitalOutputTags.ToArray()
+                AnalogInputTags = _tagRepository.GetTypeOfTags<AnalogInputTag>().ToArray(),
+                AnalogOutputTags = _tagRepository.GetTypeOfTags<AnalogOutputTag>().ToArray(),
+                DigitalInputTags = _tagRepository.GetTypeOfTags<DigitalInputTag>().ToArray(),
+                DigitalOutputTags = _tagRepository.GetTypeOfTags<DigitalOutputTag>().ToArray(),
             };
             return tags;
         }
 
-        public bool RemoveTag(string TagName)
+        public bool RemoveAlarmForTag(string tagName, string alarmName)
         {
-            var digitalInputTag = _tagRepository.DigitalInputTags.SingleOrDefault(x => x.TagName == TagName);
-            if (digitalInputTag != null)
+            Tag t = _tagRepository.Tags.Find(x => tagName == x.TagName);
+            if(t != null && t is AnalogInputTag tag)
             {
-                _tagRepository.DigitalInputTags.Remove(digitalInputTag);
-                return _tagRepository.SaveChanges();
-            }
-
-            var digitalOutputTag = _tagRepository.DigitalOutputTags.SingleOrDefault(x => x.TagName == TagName);
-            if (digitalOutputTag != null)
-            {
-                _tagRepository.DigitalOutputTags.Remove(digitalOutputTag);
-                return _tagRepository.SaveChanges();
-            }
-
-            var analogOutputTag = _tagRepository.AnalogOutputTags.SingleOrDefault(x => x.TagName == TagName);
-            if (analogOutputTag != null)
-            {
-                _tagRepository.AnalogOutputTags.Remove(analogOutputTag);
-                return _tagRepository.SaveChanges();
-            }
-
-            var analogInputTag = _tagRepository.AnalogInputTags.SingleOrDefault(x => x.TagName == TagName);
-            if (analogInputTag != null)
-            {
-                _tagRepository.AnalogOutputTags.Remove(analogOutputTag);
+                Alarm a = tag.Alarms.Find(x => x.Name == alarmName);
+                tag.Alarms.Remove(a);
                 return _tagRepository.SaveChanges();
             }
             return false;
         }
 
+        public bool RemoveTag(string TagName)
+        {
+            var tag = _tagRepository.Tags.SingleOrDefault(x => x.TagName == TagName);
+            if (tag != null) return _tagRepository.Tags.Remove(tag);
+            return false;
+        }
+
         public bool TurnScanOff(string tagName)
         {
-            DigitalInputTag dtag = _tagRepository.DigitalInputTags.Find(x => x.TagName == tagName);
-            if (dtag != null) 
-            {
-                dtag.Scan = false;
-                return _tagRepository.SaveChanges();
-            }
+            List<InputTag> tags = _tagRepository.GetTypeOfTags<InputTag>();
+            tags.Any(x => x.TagName == tagName);
 
-            AnalogInputTag atag = _tagRepository.AnalogInputTags.Find(x => x.TagName == tagName);
-            if (atag != null)
+            InputTag tag = (InputTag) _tagRepository.Tags.Find(x => x.TagName == tagName);
+
+            if (tag != null)
             {
-                atag.Scan = false;
+                tag.Scan = false;
                 return _tagRepository.SaveChanges();
             }
 
@@ -109,17 +133,14 @@ namespace SCADACore.Infrastructure.Service
 
         public bool TurnScanOn(string tagName)
         {
-            DigitalInputTag dtag = _tagRepository.DigitalInputTags.Find(x => x.TagName == tagName);
-            if (dtag != null) 
-            {
-                dtag.Scan = true;
-                return _tagRepository.SaveChanges();
-            }
+            List<InputTag> tags = _tagRepository.GetTypeOfTags<InputTag>();
+            tags.Any(x => x.TagName == tagName);
 
-            AnalogInputTag atag = _tagRepository.AnalogInputTags.Find(x => x.TagName == tagName);
-            if (atag != null)
+            InputTag tag = (InputTag) _tagRepository.Tags.Find(x => x.TagName == tagName);
+
+            if (tag != null)
             {
-                atag.Scan = true;
+                tag.Scan = true;
                 return _tagRepository.SaveChanges();
             }
 

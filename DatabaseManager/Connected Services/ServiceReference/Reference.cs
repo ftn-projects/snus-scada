@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseManager.AuthenticationServiceReference {
+namespace DatabaseManager.ServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -18,12 +18,12 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstr" +
         "action")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.OutputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.DigitalOutputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.AnalogOutputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.InputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.AnalogInputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.DigitalInputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.OutputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.DigitalOutputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.AnalogOutputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.InputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.AnalogInputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.DigitalInputTag))]
     public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -102,9 +102,9 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="OutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstr" +
         "action")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.DigitalOutputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.AnalogOutputTag))]
-    public partial class OutputTag : DatabaseManager.AuthenticationServiceReference.Tag {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.DigitalOutputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.AnalogOutputTag))]
+    public partial class OutputTag : DatabaseManager.ServiceReference.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double InitialValueField;
@@ -127,14 +127,14 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DigitalOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
     [System.SerializableAttribute()]
-    public partial class DigitalOutputTag : DatabaseManager.AuthenticationServiceReference.OutputTag {
+    public partial class DigitalOutputTag : DatabaseManager.ServiceReference.OutputTag {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
     [System.SerializableAttribute()]
-    public partial class AnalogOutputTag : DatabaseManager.AuthenticationServiceReference.OutputTag {
+    public partial class AnalogOutputTag : DatabaseManager.ServiceReference.OutputTag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double HighLimitField;
@@ -190,12 +190,12 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="InputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstr" +
         "action")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.AnalogInputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.AuthenticationServiceReference.DigitalInputTag))]
-    public partial class InputTag : DatabaseManager.AuthenticationServiceReference.Tag {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.AnalogInputTag))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.ServiceReference.DigitalInputTag))]
+    public partial class InputTag : DatabaseManager.ServiceReference.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.AuthenticationServiceReference.DriverType DriverTypeField;
+        private DatabaseManager.ServiceReference.DriverType DriverTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ScanField;
@@ -204,7 +204,7 @@ namespace DatabaseManager.AuthenticationServiceReference {
         private double ScanTimeField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.AuthenticationServiceReference.DriverType DriverType {
+        public DatabaseManager.ServiceReference.DriverType DriverType {
             get {
                 return this.DriverTypeField;
             }
@@ -247,10 +247,10 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
     [System.SerializableAttribute()]
-    public partial class AnalogInputTag : DatabaseManager.AuthenticationServiceReference.InputTag {
+    public partial class AnalogInputTag : DatabaseManager.ServiceReference.InputTag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.AuthenticationServiceReference.Alarm[] AlarmsField;
+        private DatabaseManager.ServiceReference.Alarm[] AlarmsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double HighLimitField;
@@ -262,7 +262,7 @@ namespace DatabaseManager.AuthenticationServiceReference {
         private string UnitsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.AuthenticationServiceReference.Alarm[] Alarms {
+        public DatabaseManager.ServiceReference.Alarm[] Alarms {
             get {
                 return this.AlarmsField;
             }
@@ -318,7 +318,7 @@ namespace DatabaseManager.AuthenticationServiceReference {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
     [System.SerializableAttribute()]
-    public partial class DigitalInputTag : DatabaseManager.AuthenticationServiceReference.InputTag {
+    public partial class DigitalInputTag : DatabaseManager.ServiceReference.InputTag {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -343,13 +343,16 @@ namespace DatabaseManager.AuthenticationServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.AuthenticationServiceReference.AlarmType AlarmTypeField;
+        private DatabaseManager.ServiceReference.AlarmType AlarmTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double LimitValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.AuthenticationServiceReference.Priority PriorityField;
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference.Priority PriorityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnitsField;
@@ -365,7 +368,7 @@ namespace DatabaseManager.AuthenticationServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.AuthenticationServiceReference.AlarmType AlarmType {
+        public DatabaseManager.ServiceReference.AlarmType AlarmType {
             get {
                 return this.AlarmTypeField;
             }
@@ -391,7 +394,20 @@ namespace DatabaseManager.AuthenticationServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.AuthenticationServiceReference.Priority Priority {
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference.Priority Priority {
             get {
                 return this.PriorityField;
             }
@@ -453,8 +469,101 @@ namespace DatabaseManager.AuthenticationServiceReference {
         High = 3,
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TagsState", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
+    [System.SerializableAttribute()]
+    public partial class TagsState : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference.AnalogInputTag[] AnalogInputTagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference.AnalogOutputTag[] AnalogOutputTagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference.DigitalInputTag[] DigitalInputTagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference.DigitalOutputTag[] DigitalOutputTagsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference.AnalogInputTag[] AnalogInputTags {
+            get {
+                return this.AnalogInputTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnalogInputTagsField, value) != true)) {
+                    this.AnalogInputTagsField = value;
+                    this.RaisePropertyChanged("AnalogInputTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference.AnalogOutputTag[] AnalogOutputTags {
+            get {
+                return this.AnalogOutputTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnalogOutputTagsField, value) != true)) {
+                    this.AnalogOutputTagsField = value;
+                    this.RaisePropertyChanged("AnalogOutputTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference.DigitalInputTag[] DigitalInputTags {
+            get {
+                return this.DigitalInputTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DigitalInputTagsField, value) != true)) {
+                    this.DigitalInputTagsField = value;
+                    this.RaisePropertyChanged("DigitalInputTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference.DigitalOutputTag[] DigitalOutputTags {
+            get {
+                return this.DigitalOutputTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DigitalOutputTagsField, value) != true)) {
+                    this.DigitalOutputTagsField = value;
+                    this.RaisePropertyChanged("DigitalOutputTags");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AuthenticationServiceReference.IAuthenticationManager")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IAuthenticationManager")]
     public interface IAuthenticationManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthenticationManager/Login", ReplyAction="http://tempuri.org/IAuthenticationManager/LoginResponse")]
@@ -477,12 +586,12 @@ namespace DatabaseManager.AuthenticationServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAuthenticationManagerChannel : DatabaseManager.AuthenticationServiceReference.IAuthenticationManager, System.ServiceModel.IClientChannel {
+    public interface IAuthenticationManagerChannel : DatabaseManager.ServiceReference.IAuthenticationManager, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthenticationManagerClient : System.ServiceModel.ClientBase<DatabaseManager.AuthenticationServiceReference.IAuthenticationManager>, DatabaseManager.AuthenticationServiceReference.IAuthenticationManager {
+    public partial class AuthenticationManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference.IAuthenticationManager>, DatabaseManager.ServiceReference.IAuthenticationManager {
         
         public AuthenticationManagerClient() {
         }
@@ -529,47 +638,53 @@ namespace DatabaseManager.AuthenticationServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AuthenticationServiceReference.ITagManager")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.ITagManager")]
     public interface ITagManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagManager/AddDigitalInputTagResponse")]
-        bool AddDigitalInputTag(string token, DatabaseManager.AuthenticationServiceReference.DigitalInputTag digitalInputTag);
+        bool AddDigitalInputTag(string token, DatabaseManager.ServiceReference.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddDigitalInputTag", ReplyAction="http://tempuri.org/ITagManager/AddDigitalInputTagResponse")]
-        System.Threading.Tasks.Task<bool> AddDigitalInputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.DigitalInputTag digitalInputTag);
+        System.Threading.Tasks.Task<bool> AddDigitalInputTagAsync(string token, DatabaseManager.ServiceReference.DigitalInputTag digitalInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagManager/AddDigitalOutputTagResponse")]
-        bool AddDigitalOutputTag(string token, DatabaseManager.AuthenticationServiceReference.DigitalOutputTag digitalOutputTag);
+        bool AddDigitalOutputTag(string token, DatabaseManager.ServiceReference.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddDigitalOutputTag", ReplyAction="http://tempuri.org/ITagManager/AddDigitalOutputTagResponse")]
-        System.Threading.Tasks.Task<bool> AddDigitalOutputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.DigitalOutputTag digitalOutputTag);
+        System.Threading.Tasks.Task<bool> AddDigitalOutputTagAsync(string token, DatabaseManager.ServiceReference.DigitalOutputTag digitalOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagManager/AddAnalogInputTagResponse")]
-        bool AddAnalogInputTag(string token, DatabaseManager.AuthenticationServiceReference.AnalogInputTag analogInputTag);
+        bool AddAnalogInputTag(string token, DatabaseManager.ServiceReference.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddAnalogInputTag", ReplyAction="http://tempuri.org/ITagManager/AddAnalogInputTagResponse")]
-        System.Threading.Tasks.Task<bool> AddAnalogInputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.AnalogInputTag analogInputTag);
+        System.Threading.Tasks.Task<bool> AddAnalogInputTagAsync(string token, DatabaseManager.ServiceReference.AnalogInputTag analogInputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagManager/AddAnalogOutputTagResponse")]
-        bool AddAnalogOutputTag(string token, DatabaseManager.AuthenticationServiceReference.AnalogOutputTag analogOutputTag);
+        bool AddAnalogOutputTag(string token, DatabaseManager.ServiceReference.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/AddAnalogOutputTag", ReplyAction="http://tempuri.org/ITagManager/AddAnalogOutputTagResponse")]
-        System.Threading.Tasks.Task<bool> AddAnalogOutputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.AnalogOutputTag analogOutputTag);
+        System.Threading.Tasks.Task<bool> AddAnalogOutputTagAsync(string token, DatabaseManager.ServiceReference.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/RemoveTag", ReplyAction="http://tempuri.org/ITagManager/RemoveTagResponse")]
         bool RemoveTag(string token, string TagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/RemoveTag", ReplyAction="http://tempuri.org/ITagManager/RemoveTagResponse")]
         System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string TagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/GetTagsState", ReplyAction="http://tempuri.org/ITagManager/GetTagsStateResponse")]
+        DatabaseManager.ServiceReference.TagsState GetTagsState(string token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/GetTagsState", ReplyAction="http://tempuri.org/ITagManager/GetTagsStateResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference.TagsState> GetTagsStateAsync(string token);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ITagManagerChannel : DatabaseManager.AuthenticationServiceReference.ITagManager, System.ServiceModel.IClientChannel {
+    public interface ITagManagerChannel : DatabaseManager.ServiceReference.ITagManager, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TagManagerClient : System.ServiceModel.ClientBase<DatabaseManager.AuthenticationServiceReference.ITagManager>, DatabaseManager.AuthenticationServiceReference.ITagManager {
+    public partial class TagManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference.ITagManager>, DatabaseManager.ServiceReference.ITagManager {
         
         public TagManagerClient() {
         }
@@ -590,35 +705,35 @@ namespace DatabaseManager.AuthenticationServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool AddDigitalInputTag(string token, DatabaseManager.AuthenticationServiceReference.DigitalInputTag digitalInputTag) {
+        public bool AddDigitalInputTag(string token, DatabaseManager.ServiceReference.DigitalInputTag digitalInputTag) {
             return base.Channel.AddDigitalInputTag(token, digitalInputTag);
         }
         
-        public System.Threading.Tasks.Task<bool> AddDigitalInputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.DigitalInputTag digitalInputTag) {
+        public System.Threading.Tasks.Task<bool> AddDigitalInputTagAsync(string token, DatabaseManager.ServiceReference.DigitalInputTag digitalInputTag) {
             return base.Channel.AddDigitalInputTagAsync(token, digitalInputTag);
         }
         
-        public bool AddDigitalOutputTag(string token, DatabaseManager.AuthenticationServiceReference.DigitalOutputTag digitalOutputTag) {
+        public bool AddDigitalOutputTag(string token, DatabaseManager.ServiceReference.DigitalOutputTag digitalOutputTag) {
             return base.Channel.AddDigitalOutputTag(token, digitalOutputTag);
         }
         
-        public System.Threading.Tasks.Task<bool> AddDigitalOutputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.DigitalOutputTag digitalOutputTag) {
+        public System.Threading.Tasks.Task<bool> AddDigitalOutputTagAsync(string token, DatabaseManager.ServiceReference.DigitalOutputTag digitalOutputTag) {
             return base.Channel.AddDigitalOutputTagAsync(token, digitalOutputTag);
         }
         
-        public bool AddAnalogInputTag(string token, DatabaseManager.AuthenticationServiceReference.AnalogInputTag analogInputTag) {
+        public bool AddAnalogInputTag(string token, DatabaseManager.ServiceReference.AnalogInputTag analogInputTag) {
             return base.Channel.AddAnalogInputTag(token, analogInputTag);
         }
         
-        public System.Threading.Tasks.Task<bool> AddAnalogInputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.AnalogInputTag analogInputTag) {
+        public System.Threading.Tasks.Task<bool> AddAnalogInputTagAsync(string token, DatabaseManager.ServiceReference.AnalogInputTag analogInputTag) {
             return base.Channel.AddAnalogInputTagAsync(token, analogInputTag);
         }
         
-        public bool AddAnalogOutputTag(string token, DatabaseManager.AuthenticationServiceReference.AnalogOutputTag analogOutputTag) {
+        public bool AddAnalogOutputTag(string token, DatabaseManager.ServiceReference.AnalogOutputTag analogOutputTag) {
             return base.Channel.AddAnalogOutputTag(token, analogOutputTag);
         }
         
-        public System.Threading.Tasks.Task<bool> AddAnalogOutputTagAsync(string token, DatabaseManager.AuthenticationServiceReference.AnalogOutputTag analogOutputTag) {
+        public System.Threading.Tasks.Task<bool> AddAnalogOutputTagAsync(string token, DatabaseManager.ServiceReference.AnalogOutputTag analogOutputTag) {
             return base.Channel.AddAnalogOutputTagAsync(token, analogOutputTag);
         }
         
@@ -628,6 +743,178 @@ namespace DatabaseManager.AuthenticationServiceReference {
         
         public System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string TagName) {
             return base.Channel.RemoveTagAsync(token, TagName);
+        }
+        
+        public DatabaseManager.ServiceReference.TagsState GetTagsState(string token) {
+            return base.Channel.GetTagsState(token);
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference.TagsState> GetTagsStateAsync(string token) {
+            return base.Channel.GetTagsStateAsync(token);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IDatabaseManager")]
+    public interface IDatabaseManager {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/TurnScanOn", ReplyAction="http://tempuri.org/IDatabaseManager/TurnScanOnResponse")]
+        bool TurnScanOn(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/TurnScanOn", ReplyAction="http://tempuri.org/IDatabaseManager/TurnScanOnResponse")]
+        System.Threading.Tasks.Task<bool> TurnScanOnAsync(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/TurnScanOff", ReplyAction="http://tempuri.org/IDatabaseManager/TurnScanOffResponse")]
+        bool TurnScanOff(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/TurnScanOff", ReplyAction="http://tempuri.org/IDatabaseManager/TurnScanOffResponse")]
+        System.Threading.Tasks.Task<bool> TurnScanOffAsync(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ChangeOutputValue", ReplyAction="http://tempuri.org/IDatabaseManager/ChangeOutputValueResponse")]
+        bool ChangeOutputValue(string token, string tagName, double newValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ChangeOutputValue", ReplyAction="http://tempuri.org/IDatabaseManager/ChangeOutputValueResponse")]
+        System.Threading.Tasks.Task<bool> ChangeOutputValueAsync(string token, string tagName, double newValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/GetOutputValue", ReplyAction="http://tempuri.org/IDatabaseManager/GetOutputValueResponse")]
+        double GetOutputValue(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/GetOutputValue", ReplyAction="http://tempuri.org/IDatabaseManager/GetOutputValueResponse")]
+        System.Threading.Tasks.Task<double> GetOutputValueAsync(string token, string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IDatabaseManagerChannel : DatabaseManager.ServiceReference.IDatabaseManager, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class DatabaseManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference.IDatabaseManager>, DatabaseManager.ServiceReference.IDatabaseManager {
+        
+        public DatabaseManagerClient() {
+        }
+        
+        public DatabaseManagerClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public DatabaseManagerClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public DatabaseManagerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public DatabaseManagerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public bool TurnScanOn(string token, string tagName) {
+            return base.Channel.TurnScanOn(token, tagName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TurnScanOnAsync(string token, string tagName) {
+            return base.Channel.TurnScanOnAsync(token, tagName);
+        }
+        
+        public bool TurnScanOff(string token, string tagName) {
+            return base.Channel.TurnScanOff(token, tagName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> TurnScanOffAsync(string token, string tagName) {
+            return base.Channel.TurnScanOffAsync(token, tagName);
+        }
+        
+        public bool ChangeOutputValue(string token, string tagName, double newValue) {
+            return base.Channel.ChangeOutputValue(token, tagName, newValue);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ChangeOutputValueAsync(string token, string tagName, double newValue) {
+            return base.Channel.ChangeOutputValueAsync(token, tagName, newValue);
+        }
+        
+        public double GetOutputValue(string token, string tagName) {
+            return base.Channel.GetOutputValue(token, tagName);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetOutputValueAsync(string token, string tagName) {
+            return base.Channel.GetOutputValueAsync(token, tagName);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IAlarmManager")]
+    public interface IAlarmManager {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/GetAlarmsForTag", ReplyAction="http://tempuri.org/IAlarmManager/GetAlarmsForTagResponse")]
+        DatabaseManager.ServiceReference.Alarm[] GetAlarmsForTag(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/GetAlarmsForTag", ReplyAction="http://tempuri.org/IAlarmManager/GetAlarmsForTagResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference.Alarm[]> GetAlarmsForTagAsync(string token, string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/AddAlarmForTag", ReplyAction="http://tempuri.org/IAlarmManager/AddAlarmForTagResponse")]
+        bool AddAlarmForTag(string token, string tagName, DatabaseManager.ServiceReference.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/AddAlarmForTag", ReplyAction="http://tempuri.org/IAlarmManager/AddAlarmForTagResponse")]
+        System.Threading.Tasks.Task<bool> AddAlarmForTagAsync(string token, string tagName, DatabaseManager.ServiceReference.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/RemoveAlarmForTag", ReplyAction="http://tempuri.org/IAlarmManager/RemoveAlarmForTagResponse")]
+        bool RemoveAlarmForTag(string token, string tagName, string alarmName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmManager/RemoveAlarmForTag", ReplyAction="http://tempuri.org/IAlarmManager/RemoveAlarmForTagResponse")]
+        System.Threading.Tasks.Task<bool> RemoveAlarmForTagAsync(string token, string tagName, string alarmName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmManagerChannel : DatabaseManager.ServiceReference.IAlarmManager, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference.IAlarmManager>, DatabaseManager.ServiceReference.IAlarmManager {
+        
+        public AlarmManagerClient() {
+        }
+        
+        public AlarmManagerClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public AlarmManagerClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmManagerClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmManagerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public DatabaseManager.ServiceReference.Alarm[] GetAlarmsForTag(string token, string tagName) {
+            return base.Channel.GetAlarmsForTag(token, tagName);
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference.Alarm[]> GetAlarmsForTagAsync(string token, string tagName) {
+            return base.Channel.GetAlarmsForTagAsync(token, tagName);
+        }
+        
+        public bool AddAlarmForTag(string token, string tagName, DatabaseManager.ServiceReference.Alarm alarm) {
+            return base.Channel.AddAlarmForTag(token, tagName, alarm);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddAlarmForTagAsync(string token, string tagName, DatabaseManager.ServiceReference.Alarm alarm) {
+            return base.Channel.AddAlarmForTagAsync(token, tagName, alarm);
+        }
+        
+        public bool RemoveAlarmForTag(string token, string tagName, string alarmName) {
+            return base.Channel.RemoveAlarmForTag(token, tagName, alarmName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveAlarmForTagAsync(string token, string tagName, string alarmName) {
+            return base.Channel.RemoveAlarmForTagAsync(token, tagName, alarmName);
         }
     }
 }

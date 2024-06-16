@@ -1,9 +1,6 @@
-﻿using SCADACore.Infrastructure.Utils;
+﻿using DatabaseManager.ServiceReference;
+using Infrastructure.Service.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DatabaseManager.Infrastructure.View
 {
@@ -65,13 +62,13 @@ namespace DatabaseManager.Infrastructure.View
 
         public void AddDigitalInput()
         {
-            TagServiceReference.TagManagerClient tagManagerClient = new TagServiceReference.TagManagerClient();
-            TagServiceReference.DigitalInputTag tag = new TagServiceReference.DigitalInputTag();
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            DigitalInputTag tag = new DigitalInputTag();
 
             tag.TagName = InputUtils.ReadStringNotEmpty("Enter Tag name:");
             tag.Description = InputUtils.ReadStringNotEmpty("Description:");
-            tag.DriverType = InputUtils.ReadOption(new TagServiceReference.DriverType[] { TagServiceReference.DriverType.Simulation, TagServiceReference.DriverType.Realtime }, "Select driver type"); 
-            tag.IOAddress = InputUtils.ReadInt("I/O Address", 0, 120);
+            tag.DriverType = InputUtils.ReadOption(new DriverType[] { DriverType.Simulation, DriverType.Realtime }, "Select driver type"); 
+            tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.Scan = InputUtils.ReadBool("Should scan be enabled?");
             tag.ScanTime = InputUtils.ReadDouble("Scan time:", 0);
             tagManagerClient.AddDigitalInputTag(Token, tag);
@@ -79,12 +76,12 @@ namespace DatabaseManager.Infrastructure.View
 
         public void AddDigitalOutput()
         {
-            TagServiceReference.TagManagerClient tagManagerClient = new TagServiceReference.TagManagerClient();
-            TagServiceReference.DigitalOutputTag tag = new TagServiceReference.DigitalOutputTag();
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            DigitalOutputTag tag = new DigitalOutputTag();
 
             tag.TagName = InputUtils.ReadStringNotEmpty("Enter Tag name:");
             tag.Description = InputUtils.ReadStringNotEmpty("Description:");
-            tag.IOAddress = InputUtils.ReadInt("I/O Address", 0, 120);
+            tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.InitialValue = InputUtils.ReadDouble("Initial Value:");
 
         }
@@ -92,13 +89,13 @@ namespace DatabaseManager.Infrastructure.View
         public void AddAnalogInput()
         {
 
-            TagServiceReference.TagManagerClient tagManagerClient = new TagServiceReference.TagManagerClient();
-            TagServiceReference.AnalogInputTag tag = new TagServiceReference.AnalogInputTag();
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            AnalogInputTag tag = new AnalogInputTag();
             
             tag.TagName = InputUtils.ReadStringNotEmpty("Enter Tag name:");
             tag.Description = InputUtils.ReadStringNotEmpty("Description:");
-            tag.DriverType = InputUtils.ReadOption(new TagServiceReference.DriverType[] { TagServiceReference.DriverType.Simulation, TagServiceReference.DriverType.Realtime }, "Select driver type"); 
-            tag.IOAddress = InputUtils.ReadInt("I/O Address", 0, 120);
+            tag.DriverType = InputUtils.ReadOption(new DriverType[] { DriverType.Simulation, DriverType.Realtime }, "Select driver type"); 
+            tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.Scan = InputUtils.ReadBool("Should scan be enabled?");
             tag.ScanTime = InputUtils.ReadDouble("Scan time:", 0);
             tag.HighLimit = InputUtils.ReadDouble("High Limit value:");
@@ -109,12 +106,12 @@ namespace DatabaseManager.Infrastructure.View
 
         public void AddAnalogOutput()
         {
-            TagServiceReference.TagManagerClient tagManagerClient = new TagServiceReference.TagManagerClient();
-            TagServiceReference.AnalogOutputTag tag = new TagServiceReference.AnalogOutputTag();
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            AnalogOutputTag tag = new AnalogOutputTag();
 
-            tag.TagName = InputUtils.ReadStringNotEmpty("Enter Tag name:");
+            tag.TagName = InputUtils.ReadStringNotEmpty("Enter tag name:");
             tag.Description = InputUtils.ReadStringNotEmpty("Description:");
-            tag.IOAddress = InputUtils.ReadInt("I/O Address", 0, 120);
+            tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.InitialValue = InputUtils.ReadDouble("Initial value:");
             tag.HighLimit = InputUtils.ReadDouble("High Limit value:");
             tag.LowLimit = InputUtils.ReadDouble("Low Limit value:", upperBound: tag.HighLimit);
@@ -123,13 +120,24 @@ namespace DatabaseManager.Infrastructure.View
             tagManagerClient.AddAnalogOutputTag(Token, tag);
         }
 
-        public void RemoveTag() 
+        public void RemoveTag()
         {
-        
+            string tagname = InputUtils.ReadStringNotEmpty("Enter tag name:");
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            if (tagManagerClient.RemoveTag(Token, tagname)) { Console.WriteLine("Tag removed"); return; };
+            Console.WriteLine("Tag was not removed");
         }
         public void ListAllTags()
         {
 
+            TagManagerClient tagManagerClient = new TagManagerClient();
+            TagsState tagsState = tagManagerClient.GetTagsState(Token);
+
+            Console.WriteLine("Anlog Input Tags\n");
+            foreach(var tag in tagsState.AnalogInputTags)
+            {
+                Console.WriteLine($"{tag.TagName} | {tag.Description} | {tag.DriverType} | {tag.Scan} | {tag.ScanTime} | {tag.IOAddress} | {tag.LowLimit} | {tag.HighLimit} | {tag.Units}");
+            }
         }
     }
 }

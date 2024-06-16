@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SCADACore.Infrastructure.Utils
+namespace Infrastructure.Service.Utils
 {
     public static class InputUtils
     {
@@ -28,7 +28,7 @@ namespace SCADACore.Infrastructure.Utils
                 int number;
                 if(int.TryParse(input, out number))
                 {
-                    if(number > lowerBound && number < upperBound) return number;
+                    if(number >= lowerBound && number <= upperBound) return number;
                 }
                 Console.WriteLine($"Input must be numeric, between {lowerBound} and {upperBound}");
             }
@@ -43,7 +43,7 @@ namespace SCADACore.Infrastructure.Utils
                 double number;
                 if(double.TryParse(input, out number))
                 {
-                    if (number > lowerBound && number < upperBound) return number;
+                    if (number >= lowerBound && number <= upperBound) return number;
                 }
                 Console.WriteLine($"Input must be numeric (float), between {lowerBound} and {upperBound}");
             }

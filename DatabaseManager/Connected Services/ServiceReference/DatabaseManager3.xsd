@@ -41,6 +41,7 @@
     <xs:sequence>
       <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="AlarmType" type="q4:AlarmType" />
       <xs:element minOccurs="0" name="LimitValue" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="Priority" type="q5:Priority" />
       <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -58,4 +59,28 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AnalogOutputTag" nillable="true" type="tns:AnalogOutputTag" />
+  <xs:complexType name="ArrayOfAnalogInputTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogInputTag" nillable="true" type="tns:AnalogInputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalogInputTag" nillable="true" type="tns:ArrayOfAnalogInputTag" />
+  <xs:complexType name="ArrayOfAnalogOutputTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogOutputTag" nillable="true" type="tns:AnalogOutputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalogOutputTag" nillable="true" type="tns:ArrayOfAnalogOutputTag" />
+  <xs:complexType name="ArrayOfDigitalInputTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalInputTag" nillable="true" type="tns:DigitalInputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalInputTag" nillable="true" type="tns:ArrayOfDigitalInputTag" />
+  <xs:complexType name="ArrayOfDigitalOutputTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalOutputTag" nillable="true" type="tns:DigitalOutputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalOutputTag" nillable="true" type="tns:ArrayOfDigitalOutputTag" />
 </xs:schema>

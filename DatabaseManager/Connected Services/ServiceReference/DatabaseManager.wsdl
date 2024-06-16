@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
+      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthenticationManager_Login_InputMessage">
@@ -57,6 +58,54 @@
   <wsdl:message name="ITagManager_RemoveTag_OutputMessage">
     <wsdl:part name="parameters" element="tns:RemoveTagResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagManager_GetTagsState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsState" />
+  </wsdl:message>
+  <wsdl:message name="ITagManager_GetTagsState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTagsStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_TurnScanOn_InputMessage">
+    <wsdl:part name="parameters" element="tns:TurnScanOn" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_TurnScanOn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TurnScanOnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_TurnScanOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:TurnScanOff" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_TurnScanOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TurnScanOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ChangeOutputValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOutputValue" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ChangeOutputValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOutputValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_GetOutputValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutputValue" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_GetOutputValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOutputValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_GetAlarmsForTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmsForTag" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_GetAlarmsForTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmsForTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_AddAlarmForTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarmForTag" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_AddAlarmForTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarmForTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_RemoveAlarmForTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAlarmForTag" />
+  </wsdl:message>
+  <wsdl:message name="IAlarmManager_RemoveAlarmForTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAlarmForTagResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuthenticationManager">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthenticationManager/Login" message="tns:IAuthenticationManager_Login_InputMessage" />
@@ -91,6 +140,42 @@
     <wsdl:operation name="RemoveTag">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagManager/RemoveTag" message="tns:ITagManager_RemoveTag_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagManager/RemoveTagResponse" message="tns:ITagManager_RemoveTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagManager/GetTagsState" message="tns:ITagManager_GetTagsState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagManager/GetTagsStateResponse" message="tns:ITagManager_GetTagsState_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IDatabaseManager">
+    <wsdl:operation name="TurnScanOn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/TurnScanOn" message="tns:IDatabaseManager_TurnScanOn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/TurnScanOnResponse" message="tns:IDatabaseManager_TurnScanOn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TurnScanOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/TurnScanOff" message="tns:IDatabaseManager_TurnScanOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/TurnScanOffResponse" message="tns:IDatabaseManager_TurnScanOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOutputValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ChangeOutputValue" message="tns:IDatabaseManager_ChangeOutputValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ChangeOutputValueResponse" message="tns:IDatabaseManager_ChangeOutputValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/GetOutputValue" message="tns:IDatabaseManager_GetOutputValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/GetOutputValueResponse" message="tns:IDatabaseManager_GetOutputValue_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IAlarmManager">
+    <wsdl:operation name="GetAlarmsForTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlarmManager/GetAlarmsForTag" message="tns:IAlarmManager_GetAlarmsForTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlarmManager/GetAlarmsForTagResponse" message="tns:IAlarmManager_GetAlarmsForTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarmForTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlarmManager/AddAlarmForTag" message="tns:IAlarmManager_AddAlarmForTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlarmManager/AddAlarmForTagResponse" message="tns:IAlarmManager_AddAlarmForTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAlarmForTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlarmManager/RemoveAlarmForTag" message="tns:IAlarmManager_RemoveAlarmForTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlarmManager/RemoveAlarmForTagResponse" message="tns:IAlarmManager_RemoveAlarmForTag_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthenticationManager" type="tns:IAuthenticationManager">
@@ -170,6 +255,84 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetTagsState">
+      <soap:operation soapAction="http://tempuri.org/ITagManager/GetTagsState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IDatabaseManager" type="tns:IDatabaseManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TurnScanOn">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/TurnScanOn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TurnScanOff">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/TurnScanOff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOutputValue">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/ChangeOutputValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutputValue">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/GetOutputValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IAlarmManager" type="tns:IAlarmManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAlarmsForTag">
+      <soap:operation soapAction="http://tempuri.org/IAlarmManager/GetAlarmsForTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarmForTag">
+      <soap:operation soapAction="http://tempuri.org/IAlarmManager/AddAlarmForTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAlarmForTag">
+      <soap:operation soapAction="http://tempuri.org/IAlarmManager/RemoveAlarmForTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="DatabaseManager">
     <wsdl:port name="BasicHttpBinding_IAuthenticationManager" binding="tns:BasicHttpBinding_IAuthenticationManager">
@@ -177,6 +340,12 @@
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ITagManager" binding="tns:BasicHttpBinding_ITagManager">
       <soap:address location="http://localhost:51016/Infrastructure/DatabaseManager.svc/tags" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IDatabaseManager" binding="tns:BasicHttpBinding_IDatabaseManager">
+      <soap:address location="http://localhost:51016/Infrastructure/DatabaseManager.svc/dbmanager" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IAlarmManager" binding="tns:BasicHttpBinding_IAlarmManager">
+      <soap:address location="http://localhost:51016/Infrastructure/DatabaseManager.svc/alarm" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

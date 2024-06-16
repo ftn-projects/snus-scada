@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
+using System.Xml.Linq;
 
 namespace SCADACore.Infrastructure.Domain
 {
@@ -17,5 +18,18 @@ namespace SCADACore.Infrastructure.Domain
         [DataMember]
         public string Units { get; set; }
 
+        public override XElement GetXmlRepresentation()
+        {
+            XElement element = new XElement("AnalogOutputTag");
+            element.SetAttributeValue("TagName", TagName);
+            element.SetAttributeValue("Description", Description);
+            element.SetAttributeValue("IOAddress", IOAddress);
+            element.SetAttributeValue("InitialValue", InitialValue);
+            element.SetAttributeValue("LowLimit", LowLimit);
+            element.SetAttributeValue("HighLimit", HighLimit);
+            element.SetAttributeValue("Units", Units);
+
+            return element;
+        }
     }
 }

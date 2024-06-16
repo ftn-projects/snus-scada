@@ -18,6 +18,6 @@ namespace SCADACore.Infrastructure
         [OperationContract]
         bool ChangeOutputValue(string token, string tagName, double newValue);
         [OperationContract]
-        bool GetOutputValue(string token, string tagName);
+        double GetOutputValue(string token, string tagName);
     }
 }

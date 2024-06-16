@@ -11,6 +11,9 @@ namespace SCADACore.Infrastructure.Domain
     public class Alarm
     {
         [DataMember]
+        public string Name { get; set; }
+
+        [DataMember]
         public Priority Priority { get; set; }
 
         [DataMember]

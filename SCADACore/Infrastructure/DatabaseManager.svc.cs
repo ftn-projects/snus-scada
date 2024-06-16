@@ -1,15 +1,22 @@
 ﻿using SCADACore.Infrastructure.Domain;
 using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Service;
+using System.Collections.Generic;
 
 namespace SCADACore.Infrastructure
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DatabaseManager" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select DatabaseManager.svc or DatabaseManager.svc.cs at the Solution Explorer and start debugging.
-    public class DatabaseManager : IDatabaseManager, IAuthenticationManager, ITagManager
+    public class DatabaseManager : IDatabaseManager, IAuthenticationManager, ITagManager, IAlarmManager
     {
         private static IAuthenticationService _authenticationService = new AuthenticationService();
         private static ITagService _tagService = new TagService();
+
+        public bool AddAlarmForTag(string token, string tagName, Alarm alarm)
+        {
+            if (!_authenticationService.IsAuthenticated(token)) return false;
+            return _tagService.AddAlarmForTag(tagName, alarm);
+        }
 
         public bool AddAnalogInputTag(string token, AnalogInputTag analogInputTag)
         {
@@ -42,13 +49,20 @@ namespace SCADACore.Infrastructure
         public bool ChangeOutputValue(string token, string tagName, double newValue)
         {
             if (!_authenticationService.IsAuthenticated(token)) return false;
-            throw new System.NotImplementedException();
+            return _tagService.ChangeOutputValue(tagName, newValue);
         }
 
-        public bool GetOutputValue(string token, string tagName)
+        public List<Alarm> GetAlarmsForTag(string token, string tagName)
         {
-            if (!_authenticationService.IsAuthenticated(token)) return false;
-            throw new System.NotImplementedException();
+            if (!_authenticationService.IsAuthenticated(token)) return null;
+            return _tagService.GetAlarmsForTag(tagName);
+        }
+
+        public double GetOutputValue(string token, string tagName)
+        {
+            if (!_authenticationService.IsAuthenticated(token)) return 0;
+            return _tagService.GetOutputValue(tagName);
+            
         }
 
         public TagsState GetTagsState(string token)
@@ -68,6 +82,11 @@ namespace SCADACore.Infrastructure
         public bool Register(string username, string password)
         {
             return _authenticationService.Register(username, password);
+        }
+
+        public bool RemoveAlarmForTag(string token, string tagName, string alarmName)
+        {
+            return _tagService.RemoveAlarmForTag(tagName, alarmName);
         }
 
         public bool RemoveTag(string token, string TagName)

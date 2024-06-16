@@ -1,4 +1,5 @@
-﻿using SCADACore.Infrastructure.Utils;
+﻿using Infrastructure.Service.Utils;
+using DatabaseManager.ServiceReference;
 using System;
 
 namespace DatabaseManager.Infrastructure.View
@@ -38,7 +39,7 @@ namespace DatabaseManager.Infrastructure.View
 
         private void Login()
         {
-            AuthenticationServiceReference.AuthenticationManagerClient authManager = new AuthenticationServiceReference.AuthenticationManagerClient();
+            AuthenticationManagerClient authManager = new AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
             string username = InputUtils.ReadStringNotEmpty("Username:");
             string password = InputUtils.ReadStringNotEmpty("Password:");
@@ -52,7 +53,7 @@ namespace DatabaseManager.Infrastructure.View
         }
         private void Register()
         {
-            AuthenticationServiceReference.AuthenticationManagerClient authManager = new AuthenticationServiceReference.AuthenticationManagerClient();
+            AuthenticationManagerClient authManager = new AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
             string username = InputUtils.ReadStringNotEmpty("Username:"); 
             string password = InputUtils.ReadStringNotEmpty("Password:");
