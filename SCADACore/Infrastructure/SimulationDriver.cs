@@ -12,7 +12,7 @@ namespace SCADACore.Infrastructure
         {
             switch (address)
             {
-                case 1
+                case 1:
                     return Sine();
                 case 2:
                     return Cosine();
