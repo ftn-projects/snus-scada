@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SCADACore.Infrastructure
 {
-    public class SimulationDriver :  IDriver
+    public class SimulationDriver : IDriver
     {
 
         public double ReadValue(int address)
