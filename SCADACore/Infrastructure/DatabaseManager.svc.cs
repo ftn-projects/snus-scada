@@ -2,11 +2,11 @@
 using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Service;
 using System.Collections.Generic;
+using SCADACore.Infrastructure.Contract;
+using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 
 namespace SCADACore.Infrastructure
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "DatabaseManager" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select DatabaseManager.svc or DatabaseManager.svc.cs at the Solution Explorer and start debugging.
     public class DatabaseManager : IDatabaseManager, IAuthenticationManager, ITagManager, IAlarmManager
     {
         private static readonly IAuthenticationService AuthenticationService = new AuthenticationService();
@@ -21,7 +21,7 @@ namespace SCADACore.Infrastructure
         public bool AddAnalogInputTag(string token, AnalogInputTag analogInputTag)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
-            TagService.AddAnalogInputTag(analogInputTag);
+            TagService.AddTag(analogInputTag);
             Processing.AddTagScan(analogInputTag);
             return true;
         }
@@ -29,14 +29,14 @@ namespace SCADACore.Infrastructure
         public bool AddAnalogOutputTag(string token, AnalogOutputTag analogOutputTag)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
-            TagService.AddAnalogOutputTag(analogOutputTag);
+            TagService.AddTag(analogOutputTag);
             return true;
         }
 
         public bool AddDigitalInputTag(string token, DigitalInputTag digitalInputTag)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
-            TagService.AddDigitalInputTag(digitalInputTag);
+            TagService.AddTag(digitalInputTag);
             Processing.AddTagScan(digitalInputTag);
             return true;
         }
@@ -44,7 +44,7 @@ namespace SCADACore.Infrastructure
         public bool AddDigitalOutputTag(string token, DigitalOutputTag digitalOutputTag)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
-            TagService.AddDigitalOutputTag(digitalOutputTag);
+            TagService.AddTag(digitalOutputTag);
             return true;
         }
 
@@ -94,18 +94,21 @@ namespace SCADACore.Infrastructure
         public bool RemoveTag(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+            Processing.RemoveTagScan(tagName);
             return TagService.RemoveTag(tagName);
         }
 
         public bool TurnScanOff(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+            Processing.RemoveTagScan(tagName);
             return TagService.TurnScanOff(tagName);
         }
 
         public bool TurnScanOn(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+            Processing.AddTagScan((InputTag)TagService.GetTag(tagName));
             return TagService.TurnScanOn(tagName);
         }
     }

@@ -73,12 +73,18 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Infrastructure\AlarmDisplay.svc" />
     <Content Include="Infrastructure\DatabaseManager.svc" />
+    <Content Include="Infrastructure\ReportManager.svc" />
+    <Content Include="Infrastructure\RtuDriver.svc" />
     <Content Include="Infrastructure\Trending.svc" />
     <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\AlarmDisplay.svc.cs">
+      <DependentUpon>AlarmDisplay.svc</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\DatabaseManager.svc.cs">
       <DependentUpon>DatabaseManager.svc</DependentUpon>
     </Compile>
@@ -99,15 +105,24 @@
     <Compile Include="Infrastructure\Domain\Tag\InputTagValue.cs" />
     <Compile Include="Infrastructure\Domain\Tag\TagsState.cs" />
     <Compile Include="Infrastructure\Domain\User.cs" />
-    <Compile Include="Infrastructure\IAlarmManager.cs" />
-    <Compile Include="Infrastructure\IAuthenticationManager.cs" />
-    <Compile Include="Infrastructure\IDatabaseManager.cs" />
+    <Compile Include="Infrastructure\Contract\IAlarmManager.cs" />
+    <Compile Include="Infrastructure\Contract\IAuthenticationManager.cs" />
+    <Compile Include="Infrastructure\Contract\IDatabaseManager.cs" />
+    <Compile Include="Infrastructure\Contract\IAlarmDisplay.cs" />
     <Compile Include="Infrastructure\IDriver.cs" />
-    <Compile Include="Infrastructure\ITagManager.cs" />
-    <Compile Include="Infrastructure\ITrending.cs" />
+    <Compile Include="Infrastructure\Contract\IRtuDriver.cs" />
+    <Compile Include="Infrastructure\Contract\ITagManager.cs" />
+    <Compile Include="Infrastructure\Contract\ITrending.cs" />
+    <Compile Include="Infrastructure\Contract\IReportManager.cs" />
     <Compile Include="Infrastructure\Processing.cs" />
+    <Compile Include="Infrastructure\ReportManager.svc.cs">
+      <DependentUpon>ReportManager.svc</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Repository\TagRepository.cs" />
     <Compile Include="Infrastructure\Repository\UserContext.cs" />
+    <Compile Include="Infrastructure\RtuDriver.svc.cs">
+      <DependentUpon>RtuDriver.svc</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Service\AuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\IAuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\ITagService.cs" />

@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.ServiceModel;
+using SCADACore.Infrastructure.Contract;
+using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Trending" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Trending.svc or Trending.svc.cs at the Solution Explorer and start debugging.
     public class Trending : ITrending
     {
         public void InitTrending()
         {
-            Console.WriteLine("Trending init.");
+            Processing.OnValueRead += (tag, value, timestamp) =>
+                OperationContext.Current.GetCallbackChannel<ITrendingCallback>()
+                    .OnTrendingTagPrint(new InputTagValue(tag.TagName, value, tag.DriverType, timestamp));
         }
     }
 }

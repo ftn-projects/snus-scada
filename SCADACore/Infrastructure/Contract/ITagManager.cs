@@ -1,13 +1,8 @@
-﻿using SCADACore.Infrastructure.Domain;
+﻿using System.ServiceModel;
+using SCADACore.Infrastructure.Domain;
 using SCADACore.Infrastructure.Domain.Tag;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SCADACore.Infrastructure
+namespace SCADACore.Infrastructure.Contract
 {
     [ServiceContract]
     public interface ITagManager
@@ -21,7 +16,7 @@ namespace SCADACore.Infrastructure
         [OperationContract]
         bool AddAnalogOutputTag(string token, AnalogOutputTag analogOutputTag);
         [OperationContract]
-        bool RemoveTag(string token, string TagName);
+        bool RemoveTag(string token, string tagName);
         [OperationContract]
         TagsState GetTagsState(string token);
     }

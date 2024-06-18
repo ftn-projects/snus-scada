@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace SCADACore.Infrastructure
+namespace SCADACore.Infrastructure.Contract
 {
     [ServiceContract] 
     internal interface IAuthenticationManager
