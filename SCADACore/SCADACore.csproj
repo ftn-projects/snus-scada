@@ -105,6 +105,7 @@
     <Compile Include="Infrastructure\IDriver.cs" />
     <Compile Include="Infrastructure\ITagManager.cs" />
     <Compile Include="Infrastructure\ITrending.cs" />
+    <Compile Include="Infrastructure\Processing.cs" />
     <Compile Include="Infrastructure\Repository\TagRepository.cs" />
     <Compile Include="Infrastructure\Repository\UserContext.cs" />
     <Compile Include="Infrastructure\Service\AuthenticationService.cs" />

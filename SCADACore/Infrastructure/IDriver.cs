@@ -8,6 +8,6 @@ namespace SCADACore.Infrastructure
 {
     internal interface IDriver
     {
-        double ReadValue(string address);
+        double ReadValue(int address);
     }
 }
