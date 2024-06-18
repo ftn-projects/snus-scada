@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace SCADACore.Infrastructure.Contract
@@ -7,6 +8,6 @@ namespace SCADACore.Infrastructure.Contract
     public interface IReportManager
     {
         [OperationContract]
-        IEnumerable<string> GetSomeReport();
+        List<Alarm> GetAlarmsByPriority(ConcurrentDictionary<string, Tag> tags, Priority priority);
     }
 }
