@@ -17,6 +17,7 @@ namespace SCADACore.Infrastructure
 
         private void CheckTagAlarm(InputTag tag, double value, DateTime timestamp)
         {
+            // check if ((AnalogInputTag)tag).Alarms;
             // TODO check alarm and invoke Callback if alarmed
         }
     }

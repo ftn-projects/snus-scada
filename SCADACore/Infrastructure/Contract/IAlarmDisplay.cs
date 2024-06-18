@@ -15,6 +15,6 @@ namespace SCADACore.Infrastructure.Contract
     public interface IAlarmDisplayCallback
     {
         [OperationContract(IsOneWay = true)]
-        void OnAlarmInvoked(InputTagValue tag, Alarm alarm);
+        void OnAlarmInvoked(InputTagValue tag, Alarm alarm, double value);
     }
 }

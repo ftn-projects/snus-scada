@@ -19,6 +19,11 @@ namespace SCADACore.Infrastructure
             { DriverType.Simulation, new SimulationDriver() }
         };
 
+        static Processing()
+        {
+            // OnValueRead += logger;
+        }
+
         public static void AddTagScan(InputTag tag)
         {
             Scans.Add(tag.TagName, new Thread(() =>
