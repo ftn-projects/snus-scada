@@ -16,7 +16,7 @@ namespace SCADACore.Infrastructure
         private static readonly Dictionary<DriverType, IDriver> Drivers = new Dictionary<DriverType, IDriver>
         {
             { DriverType.Realtime, new RtuDriver() },
-            // { DriverType.Simulation, new SimulationDriver }
+            { DriverType.Simulation, new SimulationDriver() }
         };
 
         public static void AddTagScan(InputTag tag)
