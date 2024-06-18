@@ -4,6 +4,7 @@ using SCADACore.Infrastructure.Service;
 using System.Collections.Generic;
 using SCADACore.Infrastructure.Contract;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
+using SCADACore.Infrastructure.Repository;
 
 namespace SCADACore.Infrastructure
 {
@@ -108,7 +109,7 @@ namespace SCADACore.Infrastructure
         public bool TurnScanOn(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
-            Processing.AddTagScan((InputTag)TagService.GetTag(tagName));
+            Processing.AddTagScan((InputTag)TagRepository.Tags[tagName]);
             return TagService.TurnScanOn(tagName);
         }
     }
