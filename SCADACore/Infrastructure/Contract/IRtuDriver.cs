@@ -6,8 +6,8 @@ namespace SCADACore.Infrastructure.Contract
     public interface IRtuDriver
     {
         [OperationContract(IsInitiating = true)]
-        void InitRtuDriver(); // TODO register private key
+        void InitRtuDriver(string publicKey); // TODO register private key
         [OperationContract(IsOneWay = true)]
-        void UpdateValue(int address, double value); // TODO add signature
+        void UpdateValue(int address, double value, byte[] signature); // TODO add signature
     }
 }

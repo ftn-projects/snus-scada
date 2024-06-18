@@ -71,7 +71,8 @@ namespace DatabaseManager.Infrastructure.View
             tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.Scan = InputUtils.ReadBool("Should scan be enabled?");
             tag.ScanTime = InputUtils.ReadDouble("Scan time:", 0);
-            tagManagerClient.AddDigitalInputTag(Token, tag);
+            if (tagManagerClient.AddDigitalInputTag(Token, tag)) { Console.WriteLine("Digital ouput tag added successfully"); return; }
+            Console.WriteLine("Operation failed");
         }
 
         public void AddDigitalOutput()
@@ -83,7 +84,8 @@ namespace DatabaseManager.Infrastructure.View
             tag.Description = InputUtils.ReadStringNotEmpty("Description:");
             tag.IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120);
             tag.InitialValue = InputUtils.ReadDouble("Initial Value:");
-
+            if (tagManagerClient.AddDigitalOutputTag(Token, tag)) { Console.WriteLine("Digital output tag added successfully"); return; }
+            Console.WriteLine("Operation failed");
         }
 
         public void AddAnalogInput()
@@ -101,7 +103,8 @@ namespace DatabaseManager.Infrastructure.View
             tag.HighLimit = InputUtils.ReadDouble("High Limit value:");
             tag.LowLimit = InputUtils.ReadDouble("Low Limit value:", upperBound: tag.HighLimit);
             tag.Units = InputUtils.ReadStringNotEmpty("Units:");
-            tagManagerClient.AddAnalogInputTag(Token, tag);
+            if (tagManagerClient.AddAnalogInputTag(Token, tag)) { Console.WriteLine("Anlog input tag added successfully"); return; };
+            Console.WriteLine("Operation failed");
         }
 
         public void AddAnalogOutput()
@@ -116,8 +119,8 @@ namespace DatabaseManager.Infrastructure.View
             tag.HighLimit = InputUtils.ReadDouble("High Limit value:");
             tag.LowLimit = InputUtils.ReadDouble("Low Limit value:", upperBound: tag.HighLimit);
             tag.Units = InputUtils.ReadStringNotEmpty("Units:");
-
-            tagManagerClient.AddAnalogOutputTag(Token, tag);
+            if(tagManagerClient.AddAnalogOutputTag(Token, tag)) { Console.WriteLine("Analog output tag added successfully"); return; }
+            Console.WriteLine("Operation failed");
         }
 
         public void RemoveTag()
@@ -132,12 +135,82 @@ namespace DatabaseManager.Infrastructure.View
 
             TagManagerClient tagManagerClient = new TagManagerClient();
             TagsState tagsState = tagManagerClient.GetTagsState(Token);
+            ListDigitalInput(tagsState.DigitalInputTags);
+            ListDigitalOutput(tagsState.DigitalOutputTags);
+            ListAnalogOutput(tagsState.AnalogOutputTags);
+            ListAnalogInput(tagsState.AnalogInputTags);
+           
+        }
 
-            Console.WriteLine("Anlog Input Tags\n");
-            foreach(var tag in tagsState.AnalogInputTags)
+        private void ListAnalogInput(AnalogInputTag[] tags)
+        {
+            Console.WriteLine("===================================");
+            Console.WriteLine("Analog input tags");
+            Console.WriteLine("===================================");
+            foreach(var tag in tags)
             {
-                Console.WriteLine($"{tag.TagName} | {tag.Description} | {tag.DriverType} | {tag.Scan} | {tag.ScanTime} | {tag.IOAddress} | {tag.LowLimit} | {tag.HighLimit} | {tag.Units}");
+                Console.WriteLine($"\nTag name: {tag.TagName}");
+                Console.WriteLine($"Description: {tag.Description}");
+                Console.WriteLine($"I/O Address: {tag.IOAddress}");
+                Console.WriteLine($"Is scan on: {tag.Scan}");
+                Console.WriteLine($"Scan time: {tag.ScanTime}");
+                Console.WriteLine($"Units: {tag.Units}");
+                Console.WriteLine($"Low limit: {tag.LowLimit}");
+                Console.WriteLine($"High limit: {tag.HighLimit}");
+                Console.WriteLine($"Driver type: {tag.DriverType}");
             }
+            Console.WriteLine("===================================\n\n");
+        }
+
+        private void ListAnalogOutput(AnalogOutputTag[] tags)
+        {
+            Console.WriteLine("===================================");
+            Console.WriteLine("Analog input tags");
+            Console.WriteLine("===================================");
+            foreach(var tag in tags)
+            {
+                Console.WriteLine($"\nTag name: {tag.TagName}");
+                Console.WriteLine($"Description: {tag.Description}");
+                Console.WriteLine($"I/O Address: {tag.IOAddress}");
+                Console.WriteLine($"Units: {tag.Units}");
+                Console.WriteLine($"Low limit: {tag.LowLimit}");
+                Console.WriteLine($"High limit: {tag.HighLimit}");
+                Console.WriteLine($"Initial value: {tag.InitialValue}");
+            }
+            Console.WriteLine("===================================\n\n");
+        }
+
+        private void ListDigitalInput(DigitalInputTag[] tags)
+        {
+            Console.WriteLine("===================================");
+            Console.WriteLine("Analog input tags");
+            Console.WriteLine("===================================");
+            foreach(var tag in tags)
+            {
+                Console.WriteLine($"\nTag name: {tag.TagName}");
+                Console.WriteLine($"Description: {tag.Description}");
+                Console.WriteLine($"I/O Address: {tag.IOAddress}");
+                Console.WriteLine($"Is scan on: {tag.Scan}");
+                Console.WriteLine($"Scan time: {tag.ScanTime}");
+                Console.WriteLine($"Driver type: {tag.DriverType}");
+            }
+
+            Console.WriteLine("===================================\n\n");
+        }
+
+        private void ListDigitalOutput(DigitalOutputTag[] tags)
+        {
+            Console.WriteLine("===================================");
+            Console.WriteLine("Analog input tags");
+            Console.WriteLine("===================================");
+            foreach(var tag in tags)
+            {
+                Console.WriteLine($"\nTag name: {tag.TagName}");
+                Console.WriteLine($"Description: {tag.Description}");
+                Console.WriteLine($"I/O Address: {tag.IOAddress}");
+                Console.WriteLine($"Initial value: {tag.IOAddress}");
+            }
+            Console.WriteLine("===================================\n\n");
         }
     }
 }

@@ -226,7 +226,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:51016/Infrastructure/Trending.svc/trending</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>WINDOWS10-BOOTC\Dimitrije</Upn>
+          <Upn>DESKTOP-QHI3EUH\vukom</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

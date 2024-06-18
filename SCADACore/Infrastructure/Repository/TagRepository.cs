@@ -127,9 +127,9 @@ namespace SCADACore.Infrastructure.Repository
             return true;
         }
 
-        public static List<T> GetTypeOfTags<T>()
+        public static List<T> GetTypeOfTags<T>() where T : Tag
         {
-            return Tags.OfType<T>().ToList();
+            return Tags.Values.OfType<T>().ToList();
         }
     }
 }

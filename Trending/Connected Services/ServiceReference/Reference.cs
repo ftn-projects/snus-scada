@@ -32,7 +32,7 @@ namespace Trending.ServiceReference {
         private System.DateTime TimestampField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
+        private double ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -84,12 +84,12 @@ namespace Trending.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
+        public double Value {
             get {
                 return this.ValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                if ((this.ValueField.Equals(value) != true)) {
                     this.ValueField = value;
                     this.RaisePropertyChanged("Value");
                 }

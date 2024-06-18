@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Tags>
+  <DigitalInputTag TagName="sometagnamedigital" Description="somedescgoeshere" Driver="Simulation" IOAddress="2" ScanTime="1200" Scan="false" />
   <AnalogInputTag TagName="MyFirstTag" Description="some description" Driver="Realtime" IOAddress="2" ScanTime="10" Scan="true" LowLimit="5" HighLimit="10" Units="cm">
     <Alarms />
   </AnalogInputTag>
-  <AnalogInputTag TagName="sssss" Description="sss" Driver="Simulation" IOAddress="1" ScanTime="1200" Scan="false" LowLimit="20" HighLimit="50" Units="cm">
+  <AnalogInputTag TagName="mytag123" Description="sometaggoeshere" Driver="Realtime" IOAddress="2" ScanTime="10000" Scan="true" LowLimit="50" HighLimit="120" Units="cm">
+    <Alarms>
+      <Alarm AlarmType="Low" Units="cm" LimitValue="60" Priority="Low" />
+    </Alarms>
+  </AnalogInputTag>
+  <AnalogInputTag TagName="sometag" Description="somedescfasda" Driver="Realtime" IOAddress="4" ScanTime="10" Scan="false" LowLimit="50" HighLimit="100" Units="cm">
     <Alarms />
   </AnalogInputTag>
 </Tags>

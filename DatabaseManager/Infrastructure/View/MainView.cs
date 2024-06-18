@@ -41,15 +41,9 @@ namespace DatabaseManager.Infrastructure.View
                         TagMenu();
                         break;
                     case "6":
-                        AddAlarmToTag();
+                        OpenAlarmMenu();
                         break;
                     case "7":
-                        RemoveAlarmFromTag();
-                        break;
-                    case "8":
-                        ListAlarmForTag();
-                        break;
-                    case "9":
                         Register();
                         break;
                     default:
@@ -66,11 +60,9 @@ namespace DatabaseManager.Infrastructure.View
             Console.WriteLine("[2] Get output value");
             Console.WriteLine("[3] Turn scan on");
             Console.WriteLine("[4] Turn scan off");
-            Console.WriteLine("[5] Add/Remove tags");
-            Console.WriteLine("[6] Add alarm");
-            Console.WriteLine("[7] Remove alarm");
-            Console.WriteLine("[8] List alarm for tag");
-            Console.WriteLine("[9] Register user");
+            Console.WriteLine("[5] Tag menu");
+            Console.WriteLine("[6] Alarm menu");
+            Console.WriteLine("[7] Register user");
             Console.WriteLine("[q] Logout/Quit");
         }   
         
@@ -116,7 +108,8 @@ namespace DatabaseManager.Infrastructure.View
             DatabaseManagerClient client = new DatabaseManagerClient();
             string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
             double newValue = InputUtils.ReadDouble("New value:");
-            client.ChangeOutputValue(Token, tagName, newValue);
+            if(client.ChangeOutputValue(Token, tagName, newValue)) { Console.WriteLine("Ouput value changed"); return; }
+            Console.WriteLine("Operation failed");
         }
 
         private void GetOutputValue()
@@ -126,34 +119,9 @@ namespace DatabaseManager.Infrastructure.View
             Console.WriteLine(client.GetOutputValue(Token, tagName)); 
         }
         
-        private void AddAlarmToTag()
+        private void OpenAlarmMenu()
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
-            Alarm alarm = new Alarm();
-            alarm.Name = InputUtils.ReadStringNotEmpty("Alarm name (must be unique):");
-            alarm.AlarmType = InputUtils.ReadOption<AlarmType>(new AlarmType[] { AlarmType.Low, AlarmType.High }, "Select the alarm's type");
-            alarm.Priority = InputUtils.ReadOption<Priority>(new Priority[] {Priority.Low, Priority.Medium, Priority.High}, "Select the alarm's priority");
-            alarm.LimitValue = InputUtils.ReadDouble("Limit value:");
-            alarm.Units = InputUtils.ReadStringNotEmpty("Units:");
-            AlarmManagerClient client = new AlarmManagerClient();
-            client.AddAlarmForTag(Token, tagName, alarm);
-        }
-
-        private void RemoveAlarmFromTag() 
-        {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
-            string alarmName = InputUtils.ReadStringNotEmpty("Alarm name:");
-            
-            AlarmManagerClient client = new AlarmManagerClient();
-            client.RemoveAlarmForTag(Token, tagName, alarmName);
-        }
-
-        private void ListAlarmForTag()
-        {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
-            AlarmManagerClient client = new AlarmManagerClient();
-            List<Alarm> alarms = client.GetAlarmsForTag(Token, tagName).ToList();
-            return;
+            new AlarmView(Token).Init();
         }
     }
 }

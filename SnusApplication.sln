@@ -15,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportManager", "ReportManager\ReportManager.csproj", "{D2353776-94ED-496A-B15E-11FF8D7B1394}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeUnit", "RealTimeUnit\RealTimeUnit.csproj", "{D7927045-E6FC-42D0-827F-697EE9F102EA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2933A2F7-731D-47AF-8C24-2015680FD79D} = {2933A2F7-731D-47AF-8C24-2015680FD79D}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{11E34412-AC74-47C0-B166-A2B1C775D183}"
 	ProjectSection(ProjectDependencies) = postProject

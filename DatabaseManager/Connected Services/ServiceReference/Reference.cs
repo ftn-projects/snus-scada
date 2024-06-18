@@ -666,10 +666,10 @@ namespace DatabaseManager.ServiceReference {
         System.Threading.Tasks.Task<bool> AddAnalogOutputTagAsync(string token, DatabaseManager.ServiceReference.AnalogOutputTag analogOutputTag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/RemoveTag", ReplyAction="http://tempuri.org/ITagManager/RemoveTagResponse")]
-        bool RemoveTag(string token, string TagName);
+        bool RemoveTag(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/RemoveTag", ReplyAction="http://tempuri.org/ITagManager/RemoveTagResponse")]
-        System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string TagName);
+        System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagManager/GetTagsState", ReplyAction="http://tempuri.org/ITagManager/GetTagsStateResponse")]
         DatabaseManager.ServiceReference.TagsState GetTagsState(string token);
@@ -737,12 +737,12 @@ namespace DatabaseManager.ServiceReference {
             return base.Channel.AddAnalogOutputTagAsync(token, analogOutputTag);
         }
         
-        public bool RemoveTag(string token, string TagName) {
-            return base.Channel.RemoveTag(token, TagName);
+        public bool RemoveTag(string token, string tagName) {
+            return base.Channel.RemoveTag(token, tagName);
         }
         
-        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string TagName) {
-            return base.Channel.RemoveTagAsync(token, TagName);
+        public System.Threading.Tasks.Task<bool> RemoveTagAsync(string token, string tagName) {
+            return base.Channel.RemoveTagAsync(token, tagName);
         }
         
         public DatabaseManager.ServiceReference.TagsState GetTagsState(string token) {

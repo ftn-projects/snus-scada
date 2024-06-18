@@ -51,6 +51,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Service\InputUtils.cs" />
+    <Compile Include="Infrastructure\View\AlarmView.cs" />
     <Compile Include="Infrastructure\View\LoginView.cs" />
     <Compile Include="Infrastructure\View\MainView.cs" />
     <Compile Include="Infrastructure\View\TagView.cs" />

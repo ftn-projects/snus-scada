@@ -6,7 +6,7 @@
       <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="DriverType" type="q1:DriverType" />
       <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Timestamp" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="InputTagValue" nillable="true" type="tns:InputTagValue" />

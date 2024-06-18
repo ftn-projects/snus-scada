@@ -93,6 +93,7 @@
     <Compile Include="Infrastructure\Domain\Enumeration\DriverType.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\EnumUtils.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\Priority.cs" />
+    <Compile Include="Infrastructure\Domain\Rtu.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\IDeserializableXml.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\InputTag.cs" />
     <Compile Include="Infrastructure\Domain\Tag\Abstraction\ISerializableXml.cs" />
