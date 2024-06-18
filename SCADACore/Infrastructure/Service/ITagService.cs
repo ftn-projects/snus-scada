@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SCADACore.Infrastructure.Domain;
+﻿using System.Collections.Generic;
+using SCADACore.Infrastructure.Domain.Alarm;
 using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 

@@ -8,9 +8,9 @@ namespace SCADACore.Infrastructure
     {
         public void InitTrending()
         {
-            Processing.OnValueRead += (tag, value, timestamp) =>
+            Processing.OnValueRead += (tag, value, timestamp) => 
                 OperationContext.Current.GetCallbackChannel<ITrendingCallback>()
-                    .OnTrendingTagPrint(new InputTagValue(tag.TagName, value, tag.DriverType, timestamp));
+                    .OnTrendingTagPrint(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
         }
     }
 }

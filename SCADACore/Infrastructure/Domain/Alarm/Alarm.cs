@@ -1,7 +1,7 @@
 ﻿using SCADACore.Infrastructure.Domain.Enumeration;
 using System.Runtime.Serialization;
 
-namespace SCADACore.Infrastructure.Domain
+namespace SCADACore.Infrastructure.Domain.Alarm
 {
     [DataContract]
     public class Alarm
@@ -16,7 +16,7 @@ namespace SCADACore.Infrastructure.Domain
         public AlarmType AlarmType { get; set; }
 
         [DataMember]
-        public double LimitValue { get; set; }
+        public double Limit { get; set; }
 
         [DataMember]
         public string Units { get; set; }

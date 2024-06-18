@@ -1,6 +1,5 @@
 ﻿using System.ServiceModel;
-using SCADACore.Infrastructure.Domain;
-using SCADACore.Infrastructure.Domain.Tag;
+using SCADACore.Infrastructure.Domain.Alarm;
 
 namespace SCADACore.Infrastructure.Contract
 {
@@ -15,6 +14,6 @@ namespace SCADACore.Infrastructure.Contract
     public interface IAlarmDisplayCallback
     {
         [OperationContract(IsOneWay = true)]
-        void OnAlarmInvoked(InputTagValue tag, Alarm alarm, double value);
+        void OnAlarmInvoked(AlarmInvocation alarm);
     }
 }

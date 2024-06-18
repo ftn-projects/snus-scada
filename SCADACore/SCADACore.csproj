@@ -88,7 +88,8 @@
     <Compile Include="Infrastructure\DatabaseManager.svc.cs">
       <DependentUpon>DatabaseManager.svc</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\Domain\Alarm.cs" />
+    <Compile Include="Infrastructure\Domain\Alarm\Alarm.cs" />
+    <Compile Include="Infrastructure\Domain\Alarm\AlarmInvocation.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\AlarmType.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\DriverType.cs" />
     <Compile Include="Infrastructure\Domain\Enumeration\EnumUtils.cs" />
@@ -119,6 +120,8 @@
     <Compile Include="Infrastructure\ReportManager.svc.cs">
       <DependentUpon>ReportManager.svc</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Repository\AlarmInvocationRepository.cs" />
+    <Compile Include="Infrastructure\Repository\TagValueRepository.cs" />
     <Compile Include="Infrastructure\Repository\TagRepository.cs" />
     <Compile Include="Infrastructure\Repository\UserContext.cs" />
     <Compile Include="Infrastructure\RtuDriver.svc.cs">
@@ -132,6 +135,7 @@
     <Compile Include="Infrastructure\Trending.svc.cs">
       <DependentUpon>Trending.svc</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Utils\AlarmInvocationLogger.cs" />
     <Compile Include="Infrastructure\Utils\DataEncryptionUtils.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

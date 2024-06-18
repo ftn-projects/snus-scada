@@ -1,17 +1,20 @@
 ﻿using SCADACore.Infrastructure.Contract;
-using SCADACore.Infrastructure.Service;
 using System.Collections.Generic;
 using System.Linq;
 using SCADACore.Infrastructure.Repository;
-using System.Collections.Concurrent;
+using SCADACore.Infrastructure.Domain;
+using SCADACore.Infrastructure.Domain.Alarm;
+using SCADACore.Infrastructure.Domain.Enumeration;
+using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure
 {
     public class ReportManager : IReportManager
     {
-        public List<Alarm> GetAlarmsByPriority(ConcurrentDictionary<string, Tag> Tags, Priority priority)
+
+        public List<Alarm> GetAlarmsByPriority(Priority priority)
         {
-            return Tags.Values
+            return TagRepository.Tags.Values
                 .OfType<AnalogInputTag>()  
                 .SelectMany(tag => tag.Alarms)  
                 .Where(alarm => alarm.Priority == priority)  

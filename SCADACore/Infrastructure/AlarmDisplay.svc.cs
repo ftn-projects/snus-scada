@@ -1,24 +1,55 @@
 ﻿using System;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.ServiceModel;
 using SCADACore.Infrastructure.Contract;
+using SCADACore.Infrastructure.Domain.Alarm;
+using SCADACore.Infrastructure.Domain.Enumeration;
+using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
+using SCADACore.Infrastructure.Repository;
+using SCADACore.Infrastructure.Utils;
 
 namespace SCADACore.Infrastructure
 {
     public class AlarmDisplay : IAlarmDisplay
     {
-        private IAlarmDisplayCallback Callback { get; set; }
+        private delegate void AlarmInvokedDelegate(AlarmInvocation alarm);
+        private static event AlarmInvokedDelegate OnAlarmInvoked;
+
+        static AlarmDisplay()
+        {
+            OnAlarmInvoked += AlarmInvocationRepository.Add;
+            OnAlarmInvoked += AlarmInvocationLogger.Log;
+        }
 
         public void InitAlarmDisplay()
         {
             Processing.OnValueRead += CheckTagAlarm;
-            Callback = OperationContext.Current.GetCallbackChannel<IAlarmDisplayCallback>();
+            OnAlarmInvoked += OperationContext.Current
+                .GetCallbackChannel<IAlarmDisplayCallback>().OnAlarmInvoked;
         }
 
-        private void CheckTagAlarm(InputTag tag, double value, DateTime timestamp)
+        private static void CheckTagAlarm(InputTag tag, double value, DateTime timestamp)
         {
-            // check if ((AnalogInputTag)tag).Alarms;
-            // TODO check alarm and invoke Callback if alarmed
+            if (!(tag is AnalogInputTag analogTag)) 
+                return;
+
+            analogTag.Alarms.ForEach(a =>
+            {
+                double delta;
+
+                if (a.AlarmType == AlarmType.Low)
+                    delta = value < a.Limit ? value - a.Limit : 0.0;
+                else
+                    delta = value > a.Limit ? value - a.Limit : 0.0;
+
+                if (delta == 0.0)
+                    return;
+
+                var invocation = new AlarmInvocation(a.Name, analogTag, a.Limit, delta, a.Units, timestamp);
+                for (var _ = 0; _ < (int) a.Priority; _++)
+                    OnAlarmInvoked?.Invoke(invocation);
+            });
         }
     }
 }

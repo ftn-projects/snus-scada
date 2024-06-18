@@ -4,6 +4,7 @@ using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 using System.Collections.Generic;
 using System.Linq;
+using SCADACore.Infrastructure.Domain.Alarm;
 
 namespace SCADACore.Infrastructure.Service
 {

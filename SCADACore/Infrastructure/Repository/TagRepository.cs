@@ -6,13 +6,13 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure.Repository
 {
     public static class TagRepository
     {
-        private static readonly string DATA_URL = "C:\\Fakultet\\Semestar 6\\Softver Nadzorno-Upravljackih Sistema\\projekat\\snus-scada\\SCADACore\\App_Data\\scadaConfig.xml"; 
-        private static readonly object Locker = new object();
+        private const string DataUrl = "C:\\Fakultet\\Semestar 6\\Softver Nadzorno-Upravljackih Sistema\\projekat\\snus-scada\\SCADACore\\App_Data\\scadaConfig.xml";
 
         public static ConcurrentDictionary<string, Tag> Tags { get; } = new ConcurrentDictionary<string, Tag>();
 
@@ -22,11 +22,15 @@ namespace SCADACore.Infrastructure.Repository
             LoadAnalogOutputTags();
             LoadDigitalInputTags();
             LoadDigitalOutputTags();
+
+            GetTypeOfTags<InputTag>()
+                .Where(t => t.Scan).ToList()
+                .ForEach(Processing.AddTagScan);
         }
         
         private static void LoadDigitalOutputTags()
         {
-            XElement xmlData = XElement.Load(DATA_URL);
+            XElement xmlData = XElement.Load(DataUrl);
             IEnumerable<XElement> digitalgOutputTagsXML = xmlData.Descendants("DigitalOutputTag");
             if (digitalgOutputTagsXML.Count() < 1) return;
             List<DigitalOutputTag> tags = (from tag in digitalgOutputTagsXML
@@ -42,7 +46,7 @@ namespace SCADACore.Infrastructure.Repository
 
         private static void LoadDigitalInputTags()
         {
-            XElement xmlData = XElement.Load(DATA_URL);
+            XElement xmlData = XElement.Load(DataUrl);
             IEnumerable<XElement> digitalInputTagsXML = xmlData.Descendants("DigitalInputTag");
             if (digitalInputTagsXML.Count() < 1) return;
             List<DigitalInputTag> tags = (from tag in digitalInputTagsXML
@@ -60,7 +64,7 @@ namespace SCADACore.Infrastructure.Repository
 
         private static void LoadAnalogOutputTags()
         {
-            XElement xmlData = XElement.Load(DATA_URL);
+            XElement xmlData = XElement.Load(DataUrl);
             IEnumerable<XElement> analogOutputTagsXML = xmlData.Descendants("AnalogOutputTag");
             if (analogOutputTagsXML.Count() < 1) return;
             List<AnalogOutputTag> tags = (from tag in  analogOutputTagsXML
@@ -79,7 +83,7 @@ namespace SCADACore.Infrastructure.Repository
 
         private static void LoadAnalogInputTags()
         {
-            XElement xmlData = XElement.Load(DATA_URL);
+            XElement xmlData = XElement.Load(DataUrl);
             IEnumerable<XElement> analogInputTagsXML = xmlData.Descendants("AnalogInputTag");
             if (analogInputTagsXML.Count() < 1) return;
             List<AnalogInputTag> tags = (from tag in analogInputTagsXML
@@ -109,7 +113,7 @@ namespace SCADACore.Infrastructure.Repository
                          AlarmType = EnumUtils.ParseEnum<AlarmType>(alarm.Attribute("AlarmType").Value),
                          Priority = EnumUtils.ParseEnum<Priority>(alarm.Attribute("Priority").Value),
                          Units = alarm.Attribute("Units").Value,
-                         LimitValue = Convert.ToDouble(alarm.Attribute("LimitValue").Value)
+                         LimitValue = Convert.ToDouble(alarm.Attribute("Limit").Value)
                      }).ToList();
         }
         
@@ -122,7 +126,7 @@ namespace SCADACore.Infrastructure.Repository
                 tagsHolder.Add(tag.GetXmlRepresentation());
             }
             xmlDocument.Add(tagsHolder);
-            xmlDocument.Save(DATA_URL);
+            xmlDocument.Save(DataUrl);
 
             return true;
         }
