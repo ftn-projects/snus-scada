@@ -112,6 +112,7 @@
     <Compile Include="Infrastructure\Service\IAuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\ITagService.cs" />
     <Compile Include="Infrastructure\Service\TagService.cs" />
+    <Compile Include="Infrastructure\SimulationDriver.cs" />
     <Compile Include="Infrastructure\Trending.svc.cs">
       <DependentUpon>Trending.svc</DependentUpon>
     </Compile>
