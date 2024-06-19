@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DatabaseManager.Infrastructure.Service;
 using ReportManager.ServiceReference;
 
 namespace ReportManager
@@ -107,12 +102,24 @@ namespace ReportManager
         {
             Console.WriteLine("\n---------------Results---------------");
             Array.ForEach(items, ToString);
-            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("--------------------------------------\n");
         }
 
         private static void ToString<T>(T item)
         {
-
+            switch (item)
+            {
+                case AlarmInvocation a:
+                    var delta = (a.LimitDeltaValue > 0 ? "+" : "") + $"{a.LimitDeltaValue}";
+                    Console.WriteLine($"[{a.Timestamp}] {a.TagName} {a.Name} {a.Limit + a.LimitDeltaValue} ({delta})");
+                    break;
+                case InputTagValue t:
+                    Console.WriteLine($"[{t.Timestamp}] {t.TagName} {t.InputTagType} {t.DriverType} {t.Value}");
+                    break;
+                default:
+                    Console.WriteLine(item.ToString());
+                    break;
+            }
         }
     }
 }

@@ -19,7 +19,9 @@ namespace SCADACore.Infrastructure.Domain
         public string EncryptedPassword { get; set; }
 
 
-        public User() { }
+        public User()
+        {
+        }
 
         public User(string username, string encryptedPassword)
         {

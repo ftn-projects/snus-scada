@@ -19,11 +19,15 @@ namespace SCADACore.Infrastructure.Domain.Alarm
         [DataMember]
         public Priority Priority { get; set; }
         [DataMember]
-        public double LimitDeltaValue { get; set; }  // (+3), (-5)...
+        public double LimitDeltaValue { get; set; }
         [DataMember] 
         public string Units { get; set; }
         [DataMember] 
         public DateTime Timestamp { get; set; }
+
+        public AlarmInvocation()
+        {
+        }
 
         public override string ToString()
         {

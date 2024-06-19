@@ -22,6 +22,10 @@ namespace SCADACore.Infrastructure.Domain.Tag
         [DataMember]
         public DateTime Timestamp { get; set; }
 
+        public InputTagValue()
+        {
+        }
+
         public InputTagValue(string tagName, DriverType driverType, double value, DateTime timestamp, string inputTagType)
         {
             TagName = tagName;

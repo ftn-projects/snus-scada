@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.Serialization;
 
-namespace DatabaseManager.Infrastructure.Service
+namespace ReportManager
 {
     public static class InputUtils
     {
@@ -49,7 +48,7 @@ namespace DatabaseManager.Infrastructure.Service
                 }
                 else
                 {
-                    Console.WriteLine("Date must be of format: dd/MM/yyyy hh:MM");
+                    Console.WriteLine("Date must be of format: yyyy/MM/dd hh:MM");
                 }
             }
         }
