@@ -25,8 +25,7 @@ namespace Infrastructure.Utils
             {
                 Console.Write(message);
                 string input = Console.ReadLine();
-                int number;
-                if(int.TryParse(input, out number))
+                if(int.TryParse(input, out var number))
                 {
                     if(number >= lowerBound && number <= upperBound) return number;
                 }
@@ -40,8 +39,7 @@ namespace Infrastructure.Utils
             {
                 Console.WriteLine(message);
                 string input = Console.ReadLine();
-                double number;
-                if(double.TryParse(input, out number))
+                if(double.TryParse(input, out var number))
                 {
                     if (number >= lowerBound && number <= upperBound) return number;
                 }

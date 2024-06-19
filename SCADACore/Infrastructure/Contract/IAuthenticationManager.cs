@@ -5,13 +5,13 @@ namespace SCADACore.Infrastructure.Contract
     [ServiceContract] 
     internal interface IAuthenticationManager
     {
-        [OperationContract(IsOneWay = false)]
+        [OperationContract]
         string Login(string username, string password);
 
-        [OperationContract(IsOneWay = false)]
+        [OperationContract]
         bool Register(string username, string password);
         
-        [OperationContract(IsOneWay = false)]
+        [OperationContract]
         bool Logout(string token);
     }
 }

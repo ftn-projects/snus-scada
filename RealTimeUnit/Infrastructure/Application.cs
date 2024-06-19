@@ -10,19 +10,16 @@ namespace RealTimeUnit.Infrastructure
     public class Application
     {
         private Mode _mode;
-        private string _name;
         private int _ioAddress;
         private double _lowestValue;
         private double _highestValue;
-        private CspParameters _csp;
-        private RSACryptoServiceProvider _cryptoService;
-        private RtuDriverClient _client;
+        private readonly RSACryptoServiceProvider _cryptoService;
+        private readonly RtuDriverClient _client;
 
         public Application() 
         {
-        
-            _csp = new CspParameters();
-            _cryptoService = new RSACryptoServiceProvider(_csp);
+            var csp = new CspParameters();
+            _cryptoService = new RSACryptoServiceProvider(csp);
             _client = new RtuDriverClient();
         }
 
@@ -59,8 +56,8 @@ namespace RealTimeUnit.Infrastructure
 
         private void Init()
         {
-            _mode = InputUtils.ReadOption<Mode>(new Mode[] { Mode.MANUAL, Mode.AUTOMATIC },"Select the input mode:");
-            _name = InputUtils.ReadStringNotEmpty("RTU's unique name: ");
+            _mode = InputUtils.ReadOption(new[] { Mode.MANUAL, Mode.AUTOMATIC },"Select the input mode:");
+            InputUtils.ReadStringNotEmpty("RTU's unique name: ");
             _ioAddress = InputUtils.ReadInt("I/O Address: ", 0, 120);
             _lowestValue = InputUtils.ReadDouble("Lowest input: ");
             _highestValue = InputUtils.ReadDouble("Highest input: ", lowerBound: _lowestValue);

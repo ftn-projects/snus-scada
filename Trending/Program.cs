@@ -18,7 +18,7 @@ namespace Trending
             }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             var ic = new InstanceContext(new TrendingCallback());
             var client = new TrendingClient(ic);

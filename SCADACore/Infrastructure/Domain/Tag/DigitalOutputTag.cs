@@ -1,8 +1,8 @@
-﻿using SCADACore.Infrastructure.Domain.Tag.Abstraction;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.Xml.Linq;
+using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 
-namespace SCADACore.Infrastructure.Domain
+namespace SCADACore.Infrastructure.Domain.Tag
 {
     [DataContract]
     public class DigitalOutputTag : OutputTag

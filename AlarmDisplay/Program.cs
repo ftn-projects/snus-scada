@@ -18,7 +18,7 @@ namespace AlarmDisplay
 
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var ic = new InstanceContext(new Callback());
             var client = new AlarmDisplayClient(ic);
