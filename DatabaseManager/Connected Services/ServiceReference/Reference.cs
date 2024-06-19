@@ -245,7 +245,7 @@ namespace DatabaseManager.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
     [System.SerializableAttribute()]
     public partial class AnalogInputTag : DatabaseManager.ServiceReference.InputTag {
         
@@ -335,7 +335,7 @@ namespace DatabaseManager.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm")]
     [System.SerializableAttribute()]
     public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -346,7 +346,7 @@ namespace DatabaseManager.ServiceReference {
         private DatabaseManager.ServiceReference.AlarmType AlarmTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LimitValueField;
+        private double LimitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -381,14 +381,14 @@ namespace DatabaseManager.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double LimitValue {
+        public double Limit {
             get {
-                return this.LimitValueField;
+                return this.LimitField;
             }
             set {
-                if ((this.LimitValueField.Equals(value) != true)) {
-                    this.LimitValueField = value;
-                    this.RaisePropertyChanged("LimitValue");
+                if ((this.LimitField.Equals(value) != true)) {
+                    this.LimitField = value;
+                    this.RaisePropertyChanged("Limit");
                 }
             }
         }

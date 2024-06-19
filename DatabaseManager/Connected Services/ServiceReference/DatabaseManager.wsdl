@@ -8,6 +8,7 @@
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
+      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthenticationManager_Login_InputMessage">
