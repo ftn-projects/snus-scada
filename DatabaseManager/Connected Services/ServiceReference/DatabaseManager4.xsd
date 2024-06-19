@@ -1,34 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
-  <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" />
-  <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" />
-  <xs:complexType name="AnalogInputTag">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" base="q1:InputTag">
-        <xs:sequence>
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" minOccurs="0" name="Alarms" nillable="true" type="q2:ArrayOfAlarm" />
-          <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
-          <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
-          <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="AnalogInputTag" nillable="true" type="tns:AnalogInputTag" />
-  <xs:complexType name="TagsState">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
+  <xs:complexType name="ArrayOfAlarm">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AnalogInputTags" nillable="true" type="tns:ArrayOfAnalogInputTag" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" minOccurs="0" name="AnalogOutputTags" nillable="true" type="q3:ArrayOfAnalogOutputTag" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" minOccurs="0" name="DigitalInputTags" nillable="true" type="q4:ArrayOfDigitalInputTag" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" minOccurs="0" name="DigitalOutputTags" nillable="true" type="q5:ArrayOfDigitalOutputTag" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alarm" nillable="true" type="tns:Alarm" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TagsState" nillable="true" type="tns:TagsState" />
-  <xs:complexType name="ArrayOfAnalogInputTag">
+  <xs:element name="ArrayOfAlarm" nillable="true" type="tns:ArrayOfAlarm" />
+  <xs:complexType name="Alarm">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogInputTag" nillable="true" type="tns:AnalogInputTag" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="AlarmType" type="q1:AlarmType" />
+      <xs:element minOccurs="0" name="Limit" type="xs:double" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" minOccurs="0" name="Priority" type="q2:Priority" />
+      <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfAnalogInputTag" nillable="true" type="tns:ArrayOfAnalogInputTag" />
+  <xs:element name="Alarm" nillable="true" type="tns:Alarm" />
 </xs:schema>

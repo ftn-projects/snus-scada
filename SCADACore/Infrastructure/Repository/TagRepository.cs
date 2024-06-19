@@ -1,5 +1,4 @@
-﻿using SCADACore.Infrastructure.Domain;
-using SCADACore.Infrastructure.Domain.Enumeration;
+﻿using SCADACore.Infrastructure.Domain.Enumeration;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using System;
 using System.Collections.Concurrent;
@@ -19,7 +18,7 @@ namespace SCADACore.Infrastructure.Repository
 
         public static ConcurrentDictionary<string, Tag> Tags { get; } = new ConcurrentDictionary<string, Tag>();
 
-        static TagRepository()
+        public static void LoadTags()
         {
             try
             {
@@ -31,10 +30,6 @@ namespace SCADACore.Infrastructure.Repository
             catch (FileNotFoundException)
             {
             }
-
-            GetTypeOfTags<InputTag>()
-                .Where(t => t.Scan).ToList()
-                .ForEach(Processing.AddTagScan);
         }
         
         private static void LoadDigitalOutputTags()

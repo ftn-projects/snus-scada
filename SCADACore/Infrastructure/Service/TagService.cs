@@ -1,5 +1,4 @@
-﻿using SCADACore.Infrastructure.Domain;
-using SCADACore.Infrastructure.Domain.Tag;
+﻿using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace SCADACore.Infrastructure.Service
         public bool AddAlarmForTag(string tagName, Alarm alarm)
         {
             Tag t = TagRepository.Tags[tagName];
-            if(t != null && t is AnalogInputTag tag)
+            if(t is AnalogInputTag tag)
             {
                 if (tag.Alarms.Any(x => x.Name == alarm.Name)) return false;
                 tag.Alarms.Add(alarm);
@@ -43,7 +42,7 @@ namespace SCADACore.Infrastructure.Service
         public List<Alarm> GetAlarmsForTag(string tagName)
         {
             Tag tag = TagRepository.Tags[tagName];
-            if(tag != null && tag is AnalogInputTag analogInputTag)
+            if(tag is AnalogInputTag analogInputTag)
             {
                 if(analogInputTag.Alarms != null && analogInputTag.Alarms.Count() > 0) return analogInputTag.Alarms;
                 return new List<Alarm>();
@@ -76,7 +75,7 @@ namespace SCADACore.Infrastructure.Service
         public bool RemoveAlarmForTag(string tagName, string alarmName)
         {
             Tag t = TagRepository.Tags[tagName];
-            if(t != null && t is AnalogInputTag tag)
+            if(t is AnalogInputTag tag)
             {
                 Alarm a = tag.Alarms.Find(x => x.Name == alarmName);
                 tag.Alarms.Remove(a);
@@ -94,34 +93,22 @@ namespace SCADACore.Infrastructure.Service
 
         public bool TurnScanOff(string tagName)
         {
-            List<InputTag> tags = TagRepository.GetTypeOfTags<InputTag>();
-            tags.Any(x => x.TagName == tagName);
-
-            InputTag tag = (InputTag) TagRepository.Tags[tagName];
-
-            if (tag != null)
-            {
-                tag.Scan = false;
-                return TagRepository.SaveChanges();
-            }
-
-            return false;
+            var tag = TagRepository.Tags[tagName];
+            if (!(tag is InputTag inputTag)) 
+                return false;
+            
+            inputTag.Scan = false;
+            return TagRepository.SaveChanges();
         }
 
         public bool TurnScanOn(string tagName)
         {
-            List<InputTag> tags = TagRepository.GetTypeOfTags<InputTag>();
-            tags.Any(x => x.TagName == tagName);
+            var tag = TagRepository.Tags[tagName];
+            if (!(tag is InputTag inputTag)) 
+                return false;
 
-            InputTag tag = (InputTag) TagRepository.Tags[tagName];
-
-            if (tag != null)
-            {
-                tag.Scan = true;
-                return TagRepository.SaveChanges();
-            }
-
-            return false;
+            inputTag.Scan = false;
+            return TagRepository.SaveChanges();
         }
     }
 }

@@ -49,6 +49,9 @@ namespace SCADACore.Infrastructure
 
         public static void RemoveTagScan(string tagName)
         {
+            if (!Scans.ContainsKey(tagName))
+                return;
+
             Scans[tagName].Interrupt();
             Scans.Remove(tagName);
         }

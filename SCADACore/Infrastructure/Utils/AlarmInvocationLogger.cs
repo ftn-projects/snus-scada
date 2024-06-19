@@ -14,5 +14,10 @@ namespace SCADACore.Infrastructure.Utils
                 writer.WriteLine(alarm);
             }
         }
+
+        public static void Wipe()
+        {
+            File.OpenWrite(LogPath).Close();
+        }
     }
 }

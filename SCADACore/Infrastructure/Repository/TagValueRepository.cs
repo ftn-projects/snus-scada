@@ -30,5 +30,13 @@ namespace SCADACore.Infrastructure.Repository
                 return db.TagValues.ToList();
             }
         }
+
+        public static void Wipe()
+        {
+            using (var db = new TagValueContext())
+            {
+                db.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE [InputTagValues]");
+            }
+        }
     }
 }

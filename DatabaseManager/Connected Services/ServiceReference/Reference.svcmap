@@ -23,7 +23,6 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="DatabaseManager.xsd" MetadataType="Schema" ID="c23ca180-7c41-458c-b21c-b4b3f277910b" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" />
-    <MetadataFile FileName="DatabaseManager6.xsd" MetadataType="Schema" ID="33faed74-e1ef-4386-b378-a61d558be97a" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd6" />
     <MetadataFile FileName="DatabaseManager1.xsd" MetadataType="Schema" ID="4542ddc5-c2da-4d5c-978e-807e4b89149c" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd1" />
     <MetadataFile FileName="DatabaseManager2.xsd" MetadataType="Schema" ID="8db0307c-ebb9-4011-b09f-a18bd9a5e585" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" />
     <MetadataFile FileName="DatabaseManager.disco" MetadataType="Disco" ID="7e553f12-07de-46a6-b6bd-1d04e47ac8d8" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/DatabaseManager.svc?disco" />

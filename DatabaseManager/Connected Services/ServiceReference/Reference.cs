@@ -125,14 +125,14 @@ namespace DatabaseManager.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
     [System.SerializableAttribute()]
     public partial class DigitalOutputTag : DatabaseManager.ServiceReference.OutputTag {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
     [System.SerializableAttribute()]
     public partial class AnalogOutputTag : DatabaseManager.ServiceReference.OutputTag {
         
@@ -316,7 +316,7 @@ namespace DatabaseManager.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
     [System.SerializableAttribute()]
     public partial class DigitalInputTag : DatabaseManager.ServiceReference.InputTag {
     }

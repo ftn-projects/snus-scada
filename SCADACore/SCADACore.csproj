@@ -79,6 +79,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Initializer.cs" />
     <Compile Include="Infrastructure\AlarmDisplay.svc.cs">
       <DependentUpon>AlarmDisplay.svc</DependentUpon>
     </Compile>

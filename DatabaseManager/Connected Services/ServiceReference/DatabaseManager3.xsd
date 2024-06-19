@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" />
+  <xs:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
   <xs:complexType name="DigitalInputTag">
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" base="q1:InputTag">
@@ -17,9 +18,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="DigitalOutputTag" nillable="true" type="tns:DigitalOutputTag" />
+  <xs:complexType name="AnalogInputTag">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" base="q3:InputTag">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" minOccurs="0" name="Alarms" nillable="true" type="q4:ArrayOfAlarm" />
+          <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AnalogInputTag" nillable="true" type="tns:AnalogInputTag" />
   <xs:complexType name="AnalogOutputTag">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" base="q3:OutputTag">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" base="q5:OutputTag">
         <xs:sequence>
           <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
           <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
@@ -29,6 +43,21 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AnalogOutputTag" nillable="true" type="tns:AnalogOutputTag" />
+  <xs:complexType name="TagsState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AnalogInputTags" nillable="true" type="tns:ArrayOfAnalogInputTag" />
+      <xs:element minOccurs="0" name="AnalogOutputTags" nillable="true" type="tns:ArrayOfAnalogOutputTag" />
+      <xs:element minOccurs="0" name="DigitalInputTags" nillable="true" type="tns:ArrayOfDigitalInputTag" />
+      <xs:element minOccurs="0" name="DigitalOutputTags" nillable="true" type="tns:ArrayOfDigitalOutputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagsState" nillable="true" type="tns:TagsState" />
+  <xs:complexType name="ArrayOfAnalogInputTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogInputTag" nillable="true" type="tns:AnalogInputTag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalogInputTag" nillable="true" type="tns:ArrayOfAnalogInputTag" />
   <xs:complexType name="ArrayOfAnalogOutputTag">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogOutputTag" nillable="true" type="tns:AnalogOutputTag" />

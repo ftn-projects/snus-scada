@@ -28,5 +28,13 @@ namespace SCADACore.Infrastructure.Repository
                 return db.AlarmInvocations.ToList();
             }
         }
+
+        public static void Wipe()
+        {
+            using (var db = new TagValueContext())
+            {
+                db.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE [AlarmInvocations]");
+            }
+        }
     }
 }

@@ -4,11 +4,10 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain" />
+      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstraction" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
-      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
-      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
+      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/DatabaseManager.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthenticationManager_Login_InputMessage">
