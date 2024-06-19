@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Web;
+﻿using System.IO;
 using SCADACore.Infrastructure.Domain.Alarm;
 
 namespace SCADACore.Infrastructure.Utils

@@ -19,6 +19,7 @@ namespace SCADACore.Infrastructure.Repository
             using (var db = new TagValueContext())
             {
                 db.TagValues.Add(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
+                db.SaveChanges();
             }
         }
 

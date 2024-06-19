@@ -17,6 +17,7 @@ namespace SCADACore.Infrastructure.Repository
             using (var db = new AlarmInvocationContext())
             {
                 db.AlarmInvocations.Add(alarm);
+                db.SaveChanges();
             }
         }
 

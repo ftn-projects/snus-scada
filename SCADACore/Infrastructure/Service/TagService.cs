@@ -87,7 +87,9 @@ namespace SCADACore.Infrastructure.Service
 
         public bool RemoveTag(string tagName)
         {
-            return TagRepository.Tags.TryRemove(tagName, out _);
+            var success = TagRepository.Tags.TryRemove(tagName, out _);
+            if (success) TagRepository.SaveChanges();
+            return success;
         }
 
         public bool TurnScanOff(string tagName)
