@@ -109,7 +109,6 @@
     <Compile Include="Infrastructure\Contract\IAuthenticationManager.cs" />
     <Compile Include="Infrastructure\Contract\IDatabaseManager.cs" />
     <Compile Include="Infrastructure\Contract\IAlarmDisplay.cs" />
-    <Compile Include="Infrastructure\IDriver.cs" />
     <Compile Include="Infrastructure\Contract\IRtuDriver.cs" />
     <Compile Include="Infrastructure\Contract\ITagManager.cs" />
     <Compile Include="Infrastructure\Contract\ITrending.cs" />
@@ -129,7 +128,6 @@
     <Compile Include="Infrastructure\Service\IAuthenticationService.cs" />
     <Compile Include="Infrastructure\Service\ITagService.cs" />
     <Compile Include="Infrastructure\Service\TagService.cs" />
-    <Compile Include="Infrastructure\SimulationDriver.cs" />
     <Compile Include="Infrastructure\Trending.svc.cs">
       <DependentUpon>Trending.svc</DependentUpon>
     </Compile>
@@ -150,6 +148,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DriverLibrary\DriverLibrary.csproj">
+      <Project>{7875ebf3-3061-480b-b1b3-68eb06b96f13}</Project>
+      <Name>DriverLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

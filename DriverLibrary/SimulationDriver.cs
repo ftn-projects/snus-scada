@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SCADACore.Infrastructure
+namespace DriverLibrary
 {
     public class SimulationDriver : IDriver
     {

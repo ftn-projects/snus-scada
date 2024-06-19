@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Security.Cryptography;
+using DriverLibrary;
 using SCADACore.Infrastructure.Contract;
 
 namespace SCADACore.Infrastructure
