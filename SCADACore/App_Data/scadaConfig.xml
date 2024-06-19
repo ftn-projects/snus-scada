@@ -4,7 +4,13 @@
   <AnalogInputTag TagName="ai" Description="analog input tag" Driver="Realtime" IOAddress="7" ScanTime="10000" Scan="true" LowLimit="10" HighLimit="80" Units="cm">
     <Alarms>
       <Alarm Name="basicAlarm" AlarmType="High" Units="cm" Limit="70" Priority="High" />
+      <Alarm Name="LowerAlarm" AlarmType="Low" Units="l" Limit="23" Priority="Low" />
     </Alarms>
   </AnalogInputTag>
+  <DigitalInputTag TagName="novi1" Description="asd" Driver="Simulation" IOAddress="3" ScanTime="10000" Scan="false" />
+  <AnalogInputTag TagName="novi2" Description="asd" Driver="Realtime" IOAddress="1" ScanTime="10000" Scan="true" LowLimit="10" HighLimit="90" Units="cm">
+    <Alarms />
+  </AnalogInputTag>
   <DigitalOutputTag TagName="do" Description="digital output tag" IOAddress="8" InitialValue="20" />
+  <AnalogOutputTag TagName="ao" Description="analog output tag" IOAddress="9" InitialValue="40" LowLimit="10" HighLimit="100" Units="bar" />
 </Tags>

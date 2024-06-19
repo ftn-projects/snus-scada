@@ -10,9 +10,11 @@ namespace AlarmDisplay
 {
     internal class Callback : IAlarmDisplayCallback
     {
-        public void OnAlarmInvoked(AlarmInvocation alarm)
+        public void OnAlarmInvoked(AlarmInvocation a)
         {
-            Console.WriteLine(alarm.ToString());
+
+            var delta = (a.LimitDeltaValue > 0 ? "+" : "") + $"{a.LimitDeltaValue}";
+            Console.WriteLine($"[{a.Timestamp}] {a.TagName} {a.Name} {a.Limit + a.LimitDeltaValue} ({delta})");
         }
     }
 

@@ -111,10 +111,10 @@ namespace ReportManager
             {
                 case AlarmInvocation a:
                     var delta = (a.LimitDeltaValue > 0 ? "+" : "") + $"{a.LimitDeltaValue}";
-                    Console.WriteLine($"[{a.Timestamp}] {a.TagName} {a.Name} {a.Limit + a.LimitDeltaValue} ({delta})");
+                    Console.WriteLine($"[{a.Timestamp}] tag: {a.TagName}, alarm: {a.Name}, value: {a.Limit + a.LimitDeltaValue} ({delta})");
                     break;
                 case InputTagValue t:
-                    Console.WriteLine($"[{t.Timestamp}] {t.TagName} {t.InputTagType} {t.DriverType} {t.Value}");
+                    Console.WriteLine($"[{t.Timestamp}] tag: {t.TagName}, type: {t.InputTagType}, driver: {t.DriverType}, value: {t.Value}");
                     break;
                 default:
                     Console.WriteLine(item.ToString());

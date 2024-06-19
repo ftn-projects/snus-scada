@@ -56,7 +56,7 @@ namespace SCADACore.Infrastructure.Repository
             {
                 return db.TagValues.Where(value => value.InputTagType == tagType)
                     .GroupBy(x => x.TagName)
-                    .Select(x => x.OrderByDescending(t => t.Timestamp).First())
+                    .Select(x => x.OrderByDescending(t => t.Timestamp).FirstOrDefault())
                     .OrderBy(x => x.Timestamp)
                     .ToList();
             }

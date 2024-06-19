@@ -61,7 +61,7 @@ namespace DatabaseManager.Infrastructure.Service
         {
             while (true)
             {
-                Console.Write(message);
+                Console.WriteLine(message);
                 for(int i = 0; i < options.Count(); i++)
                 {
                     Console.WriteLine($"[{i}] {options[i]}");
