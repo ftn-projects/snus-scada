@@ -50,14 +50,14 @@ namespace DatabaseManager.Infrastructure.View
         } 
         private void AddAlarmToTag()
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Tag name: ");
             Alarm alarm = new Alarm
             {
-                Name = InputUtils.ReadStringNotEmpty("Alarm name (must be unique):"),
+                Name = InputUtils.ReadStringNotEmpty("Alarm name (must be unique): "),
                 AlarmType = InputUtils.ReadOption(new[] { AlarmType.Low, AlarmType.High }, "Select the alarm's type"),
                 Priority = InputUtils.ReadOption(new[] {Priority.Low, Priority.Medium, Priority.High}, "Select the alarm's priority"),
-                Limit = InputUtils.ReadDouble("Limit value:"),
-                Units = InputUtils.ReadStringNotEmpty("Units:")
+                Limit = InputUtils.ReadDouble("Limit value: "),
+                Units = InputUtils.ReadStringNotEmpty("Units: ")
             };
             AlarmManagerClient client = new AlarmManagerClient();
             if(client.AddAlarmForTag(Token, tagName, alarm)) { Console.WriteLine("New alarm added to the tag"); return; }
@@ -66,8 +66,8 @@ namespace DatabaseManager.Infrastructure.View
 
         private void RemoveAlarmFromTag() 
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
-            string alarmName = InputUtils.ReadStringNotEmpty("Alarm name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Tag name: ");
+            string alarmName = InputUtils.ReadStringNotEmpty("Alarm name: ");
             
             AlarmManagerClient client = new AlarmManagerClient();
             if(client.RemoveAlarmForTag(Token, tagName, alarmName)) { Console.WriteLine("Alarm removed successfully"); return; }
@@ -76,7 +76,7 @@ namespace DatabaseManager.Infrastructure.View
 
         private void ListAlarmForTag()
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Tag name: ");
             AlarmManagerClient client = new AlarmManagerClient();
             List<Alarm> alarms = client.GetAlarmsForTag(Token, tagName).ToList();
             string message =  alarms.Count() > 0? $"Alarms for {tagName} tag" : $"No alarms found for given tag name: {tagName}";

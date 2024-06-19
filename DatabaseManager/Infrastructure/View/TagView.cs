@@ -42,8 +42,6 @@ namespace DatabaseManager.Infrastructure.View
                     case "6":
                         ListAllTags();
                         break;
-                    default:
-                        break;
                 }
 
             } while (!string.Equals(option, "q", StringComparison.OrdinalIgnoreCase));
@@ -65,12 +63,12 @@ namespace DatabaseManager.Infrastructure.View
             TagManagerClient tagManagerClient = new TagManagerClient();
             DigitalInputTag tag = new DigitalInputTag
             {
-                TagName = InputUtils.ReadStringNotEmpty("Enter Tag name:"),
-                Description = InputUtils.ReadStringNotEmpty("Description:"),
-                DriverType = InputUtils.ReadOption(new DriverType[] { DriverType.Simulation, DriverType.Realtime }, "Select driver type"),
-                IOAddress = InputUtils.ReadInt("I/O Address:", 0, 120),
+                TagName = InputUtils.ReadStringNotEmpty("Enter Tag name: "),
+                Description = InputUtils.ReadStringNotEmpty("Description: "),
+                DriverType = InputUtils.ReadOption(new[] { DriverType.Simulation, DriverType.Realtime }, "Select driver type"),
+                IOAddress = InputUtils.ReadInt("I/O Address: ", 0, 120),
                 Scan = InputUtils.ReadBool("Should scan be enabled?"),
-                ScanTime = InputUtils.ReadDouble("Scan time:", 0)
+                ScanTime = InputUtils.ReadDouble("Scan time: ", 0)
             };
 
             if (tagManagerClient.AddDigitalInputTag(Token, tag)) { Console.WriteLine("Digital ouput tag added successfully"); return; }

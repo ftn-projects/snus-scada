@@ -68,8 +68,8 @@ namespace DatabaseManager.Infrastructure.View
         {
             AuthenticationManagerClient authManager = new AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
-            string username = InputUtils.ReadStringNotEmpty("Username:"); 
-            string password = InputUtils.ReadStringNotEmpty("Password:");
+            string username = InputUtils.ReadStringNotEmpty("Username: "); 
+            string password = InputUtils.ReadStringNotEmpty("Password: ");
             if(authManager.Register(username, password)) { Console.WriteLine("Registration successuful"); return; }
             Console.WriteLine("Registration failed");
         }
@@ -87,7 +87,7 @@ namespace DatabaseManager.Infrastructure.View
         
         private void TurnScanOn()
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Enter tag name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Enter tag name: ");
             DatabaseManagerClient client = new DatabaseManagerClient();
             if(client.TurnScanOn(Token, tagName)) { Console.WriteLine($"Scan turned on successfully on tag {tagName}"); return; }
             Console.WriteLine("Operation failed");
@@ -95,7 +95,7 @@ namespace DatabaseManager.Infrastructure.View
 
         private void TurnScanOff()
         {
-            string tagName = InputUtils.ReadStringNotEmpty("Enter tag name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Enter tag name: ");
             DatabaseManagerClient client = new DatabaseManagerClient();
             if(client.TurnScanOff(Token, tagName)) { Console.WriteLine($"Scan turned off successfully on tag {tagName}"); return; }
             Console.WriteLine("Operation failed");
@@ -104,8 +104,8 @@ namespace DatabaseManager.Infrastructure.View
         private void ChangeOutputValue()
         {
             DatabaseManagerClient client = new DatabaseManagerClient();
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
-            double newValue = InputUtils.ReadDouble("New value:");
+            string tagName = InputUtils.ReadStringNotEmpty("Tag name: ");
+            double newValue = InputUtils.ReadDouble("New value: ");
             if(client.ChangeOutputValue(Token, tagName, newValue)) { Console.WriteLine("Ouput value changed"); return; }
             Console.WriteLine("Operation failed");
         }
@@ -113,7 +113,7 @@ namespace DatabaseManager.Infrastructure.View
         private void GetOutputValue()
         {
             DatabaseManagerClient client = new DatabaseManagerClient();
-            string tagName = InputUtils.ReadStringNotEmpty("Tag name:");
+            string tagName = InputUtils.ReadStringNotEmpty("Tag name: ");
             Console.WriteLine(client.GetOutputValue(Token, tagName)); 
         }
         
