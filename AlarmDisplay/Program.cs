@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace AlarmDisplay
     {
         public void OnAlarmInvoked(AlarmInvocation alarm)
         {
+            Console.WriteLine(alarm.ToString());
         }
     }
 
@@ -18,6 +20,13 @@ namespace AlarmDisplay
     {
         static void Main(string[] args)
         {
+            var ic = new InstanceContext(new Callback());
+            var client = new AlarmDisplayClient(ic);
+
+            Console.WriteLine("\n---------------Alarm Display---------------");
+
+            client.InitAlarmDisplay();
+            Console.ReadKey();
         }
     }
 }
