@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Tags>
   <DigitalInputTag TagName="di" Description="digital input tag" Driver="Realtime" IOAddress="2" ScanTime="10000" Scan="true" />
-  <AnalogInputTag TagName="ai" Description="analog input tag" Driver="Realtime" IOAddress="7" ScanTime="10000" Scan="false" LowLimit="10" HighLimit="80" Units="cm">
+  <AnalogInputTag TagName="ai" Description="analog input tag" Driver="Realtime" IOAddress="7" ScanTime="10000" Scan="true" LowLimit="10" HighLimit="80" Units="cm">
     <Alarms>
-      <Alarm AlarmType="High" Units="cm" Limit="70" Priority="High" />
+      <Alarm Name="basicAlarm" AlarmType="High" Units="cm" Limit="70" Priority="High" />
     </Alarms>
   </AnalogInputTag>
   <DigitalOutputTag TagName="do" Description="digital output tag" IOAddress="8" InitialValue="20" />

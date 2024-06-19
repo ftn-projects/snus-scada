@@ -30,24 +30,30 @@ namespace ReportManager.ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmInvocation", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm")]
     [System.SerializableAttribute()]
-    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class AlarmInvocation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ReportManager.ServiceReference.AlarmType AlarmTypeField;
+        private double LimitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LimitField;
+        private double LimitDeltaValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ReportManager.ServiceReference.Priority PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimestampField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnitsField;
@@ -63,19 +69,6 @@ namespace ReportManager.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ReportManager.ServiceReference.AlarmType AlarmType {
-            get {
-                return this.AlarmTypeField;
-            }
-            set {
-                if ((this.AlarmTypeField.Equals(value) != true)) {
-                    this.AlarmTypeField = value;
-                    this.RaisePropertyChanged("AlarmType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public double Limit {
             get {
                 return this.LimitField;
@@ -84,6 +77,19 @@ namespace ReportManager.ServiceReference {
                 if ((this.LimitField.Equals(value) != true)) {
                     this.LimitField = value;
                     this.RaisePropertyChanged("Limit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LimitDeltaValue {
+            get {
+                return this.LimitDeltaValueField;
+            }
+            set {
+                if ((this.LimitDeltaValueField.Equals(value) != true)) {
+                    this.LimitDeltaValueField = value;
+                    this.RaisePropertyChanged("LimitDeltaValue");
                 }
             }
         }
@@ -115,6 +121,32 @@ namespace ReportManager.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Timestamp {
+            get {
+                return this.TimestampField;
+            }
+            set {
+                if ((this.TimestampField.Equals(value) != true)) {
+                    this.TimestampField = value;
+                    this.RaisePropertyChanged("Timestamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Units {
             get {
                 return this.UnitsField;
@@ -137,16 +169,125 @@ namespace ReportManager.ServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmType", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumerati" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="InputTagValue", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
+    [System.SerializableAttribute()]
+    public partial class InputTagValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference.DriverType DriverTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InputTagTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimestampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference.DriverType DriverType {
+            get {
+                return this.DriverTypeField;
+            }
+            set {
+                if ((this.DriverTypeField.Equals(value) != true)) {
+                    this.DriverTypeField = value;
+                    this.RaisePropertyChanged("DriverType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InputTagType {
+            get {
+                return this.InputTagTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InputTagTypeField, value) != true)) {
+                    this.InputTagTypeField = value;
+                    this.RaisePropertyChanged("InputTagType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Timestamp {
+            get {
+                return this.TimestampField;
+            }
+            set {
+                if ((this.TimestampField.Equals(value) != true)) {
+                    this.TimestampField = value;
+                    this.RaisePropertyChanged("Timestamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DriverType", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumerati" +
         "on")]
-    public enum AlarmType : int {
+    public enum DriverType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Low = 0,
+        Simulation = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        High = 1,
+        Realtime = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -154,10 +295,40 @@ namespace ReportManager.ServiceReference {
     public interface IReportManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IReportManager/GetAlarmsByPriorityResponse")]
-        ReportManager.ServiceReference.Alarm[] GetAlarmsByPriority(ReportManager.ServiceReference.Priority priority);
+        ReportManager.ServiceReference.AlarmInvocation[] GetAlarmsByPriority(ReportManager.ServiceReference.Priority priority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IReportManager/GetAlarmsByPriorityResponse")]
-        System.Threading.Tasks.Task<ReportManager.ServiceReference.Alarm[]> GetAlarmsByPriorityAsync(ReportManager.ServiceReference.Priority priority);
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.AlarmInvocation[]> GetAlarmsByPriorityAsync(ReportManager.ServiceReference.Priority priority);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IReportManager/GetAlarmsInPeriodResponse")]
+        ReportManager.ServiceReference.AlarmInvocation[] GetAlarmsInPeriod(System.DateTime start, System.DateTime end);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IReportManager/GetAlarmsInPeriodResponse")]
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.AlarmInvocation[]> GetAlarmsInPeriodAsync(System.DateTime start, System.DateTime end);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetDigitalInputTagValues", ReplyAction="http://tempuri.org/IReportManager/GetDigitalInputTagValuesResponse")]
+        ReportManager.ServiceReference.InputTagValue[] GetDigitalInputTagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetDigitalInputTagValues", ReplyAction="http://tempuri.org/IReportManager/GetDigitalInputTagValuesResponse")]
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetDigitalInputTagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAnalogInputTagValues", ReplyAction="http://tempuri.org/IReportManager/GetAnalogInputTagValuesResponse")]
+        ReportManager.ServiceReference.InputTagValue[] GetAnalogInputTagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetAnalogInputTagValues", ReplyAction="http://tempuri.org/IReportManager/GetAnalogInputTagValuesResponse")]
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetAnalogInputTagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetInputTagValuesByTagName", ReplyAction="http://tempuri.org/IReportManager/GetInputTagValuesByTagNameResponse")]
+        ReportManager.ServiceReference.InputTagValue[] GetInputTagValuesByTagName(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetInputTagValuesByTagName", ReplyAction="http://tempuri.org/IReportManager/GetInputTagValuesByTagNameResponse")]
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetInputTagValuesByTagNameAsync(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetInputTagValuesByPeriod", ReplyAction="http://tempuri.org/IReportManager/GetInputTagValuesByPeriodResponse")]
+        ReportManager.ServiceReference.InputTagValue[] GetInputTagValuesByPeriod(System.DateTime start, System.DateTime end);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/GetInputTagValuesByPeriod", ReplyAction="http://tempuri.org/IReportManager/GetInputTagValuesByPeriodResponse")]
+        System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetInputTagValuesByPeriodAsync(System.DateTime start, System.DateTime end);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -187,12 +358,52 @@ namespace ReportManager.ServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public ReportManager.ServiceReference.Alarm[] GetAlarmsByPriority(ReportManager.ServiceReference.Priority priority) {
+        public ReportManager.ServiceReference.AlarmInvocation[] GetAlarmsByPriority(ReportManager.ServiceReference.Priority priority) {
             return base.Channel.GetAlarmsByPriority(priority);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.ServiceReference.Alarm[]> GetAlarmsByPriorityAsync(ReportManager.ServiceReference.Priority priority) {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.AlarmInvocation[]> GetAlarmsByPriorityAsync(ReportManager.ServiceReference.Priority priority) {
             return base.Channel.GetAlarmsByPriorityAsync(priority);
+        }
+        
+        public ReportManager.ServiceReference.AlarmInvocation[] GetAlarmsInPeriod(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetAlarmsInPeriod(start, end);
+        }
+        
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.AlarmInvocation[]> GetAlarmsInPeriodAsync(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetAlarmsInPeriodAsync(start, end);
+        }
+        
+        public ReportManager.ServiceReference.InputTagValue[] GetDigitalInputTagValues() {
+            return base.Channel.GetDigitalInputTagValues();
+        }
+        
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetDigitalInputTagValuesAsync() {
+            return base.Channel.GetDigitalInputTagValuesAsync();
+        }
+        
+        public ReportManager.ServiceReference.InputTagValue[] GetAnalogInputTagValues() {
+            return base.Channel.GetAnalogInputTagValues();
+        }
+        
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetAnalogInputTagValuesAsync() {
+            return base.Channel.GetAnalogInputTagValuesAsync();
+        }
+        
+        public ReportManager.ServiceReference.InputTagValue[] GetInputTagValuesByTagName(string tagName) {
+            return base.Channel.GetInputTagValuesByTagName(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetInputTagValuesByTagNameAsync(string tagName) {
+            return base.Channel.GetInputTagValuesByTagNameAsync(tagName);
+        }
+        
+        public ReportManager.ServiceReference.InputTagValue[] GetInputTagValuesByPeriod(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetInputTagValuesByPeriod(start, end);
+        }
+        
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference.InputTagValue[]> GetInputTagValuesByPeriodAsync(System.DateTime start, System.DateTime end) {
+            return base.Channel.GetInputTagValuesByPeriodAsync(start, end);
         }
     }
 }

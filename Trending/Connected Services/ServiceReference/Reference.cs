@@ -26,6 +26,9 @@ namespace Trending.ServiceReference {
         private Trending.ServiceReference.DriverType DriverTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InputTagTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -53,6 +56,19 @@ namespace Trending.ServiceReference {
                 if ((this.DriverTypeField.Equals(value) != true)) {
                     this.DriverTypeField = value;
                     this.RaisePropertyChanged("DriverType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InputTagType {
+            get {
+                return this.InputTagTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InputTagTypeField, value) != true)) {
+                    this.InputTagTypeField = value;
+                    this.RaisePropertyChanged("InputTagType");
                 }
             }
         }

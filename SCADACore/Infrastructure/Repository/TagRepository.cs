@@ -114,6 +114,7 @@ namespace SCADACore.Infrastructure.Repository
             return (from alarm in alarmsXML
                      select new Alarm
                      {
+                         Name = alarm.Attribute("Name").Value,
                          AlarmType = EnumUtils.ParseEnum<AlarmType>(alarm.Attribute("AlarmType").Value),
                          Priority = EnumUtils.ParseEnum<Priority>(alarm.Attribute("Priority").Value),
                          Units = alarm.Attribute("Units").Value,

@@ -32,7 +32,10 @@ namespace AlarmDisplay.ServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AlarmDisplay.ServiceReference.AnalogInputTag TagField;
+        private AlarmDisplay.ServiceReference.Priority PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime TimestampField;
@@ -90,14 +93,27 @@ namespace AlarmDisplay.ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public AlarmDisplay.ServiceReference.AnalogInputTag Tag {
+        public AlarmDisplay.ServiceReference.Priority Priority {
             get {
-                return this.TagField;
+                return this.PriorityField;
             }
             set {
-                if ((object.ReferenceEquals(this.TagField, value) != true)) {
-                    this.TagField = value;
-                    this.RaisePropertyChanged("Tag");
+                if ((this.PriorityField.Equals(value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
                 }
             }
         }
@@ -136,347 +152,6 @@ namespace AlarmDisplay.ServiceReference {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag")]
-    [System.SerializableAttribute()]
-    public partial class AnalogInputTag : AlarmDisplay.ServiceReference.InputTag {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AlarmDisplay.ServiceReference.Alarm[] AlarmsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double HighLimitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LowLimitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UnitsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AlarmDisplay.ServiceReference.Alarm[] Alarms {
-            get {
-                return this.AlarmsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlarmsField, value) != true)) {
-                    this.AlarmsField = value;
-                    this.RaisePropertyChanged("Alarms");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double HighLimit {
-            get {
-                return this.HighLimitField;
-            }
-            set {
-                if ((this.HighLimitField.Equals(value) != true)) {
-                    this.HighLimitField = value;
-                    this.RaisePropertyChanged("HighLimit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double LowLimit {
-            get {
-                return this.LowLimitField;
-            }
-            set {
-                if ((this.LowLimitField.Equals(value) != true)) {
-                    this.LowLimitField = value;
-                    this.RaisePropertyChanged("LowLimit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Units {
-            get {
-                return this.UnitsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitsField, value) != true)) {
-                    this.UnitsField = value;
-                    this.RaisePropertyChanged("Units");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstr" +
-        "action")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.ServiceReference.InputTag))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.ServiceReference.AnalogInputTag))]
-    public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IOAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IOAddress {
-            get {
-                return this.IOAddressField;
-            }
-            set {
-                if ((this.IOAddressField.Equals(value) != true)) {
-                    this.IOAddressField = value;
-                    this.RaisePropertyChanged("IOAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TagName {
-            get {
-                return this.TagNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
-                    this.TagNameField = value;
-                    this.RaisePropertyChanged("TagName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="InputTag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag.Abstr" +
-        "action")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.ServiceReference.AnalogInputTag))]
-    public partial class InputTag : AlarmDisplay.ServiceReference.Tag {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AlarmDisplay.ServiceReference.DriverType DriverTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ScanField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ScanTimeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AlarmDisplay.ServiceReference.DriverType DriverType {
-            get {
-                return this.DriverTypeField;
-            }
-            set {
-                if ((this.DriverTypeField.Equals(value) != true)) {
-                    this.DriverTypeField = value;
-                    this.RaisePropertyChanged("DriverType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Scan {
-            get {
-                return this.ScanField;
-            }
-            set {
-                if ((this.ScanField.Equals(value) != true)) {
-                    this.ScanField = value;
-                    this.RaisePropertyChanged("Scan");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ScanTime {
-            get {
-                return this.ScanTimeField;
-            }
-            set {
-                if ((this.ScanTimeField.Equals(value) != true)) {
-                    this.ScanTimeField = value;
-                    this.RaisePropertyChanged("ScanTime");
-                }
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DriverType", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumerati" +
-        "on")]
-    public enum DriverType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Simulation = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Realtime = 1,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm")]
-    [System.SerializableAttribute()]
-    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AlarmDisplay.ServiceReference.AlarmType AlarmTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LimitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private AlarmDisplay.ServiceReference.Priority PriorityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UnitsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AlarmDisplay.ServiceReference.AlarmType AlarmType {
-            get {
-                return this.AlarmTypeField;
-            }
-            set {
-                if ((this.AlarmTypeField.Equals(value) != true)) {
-                    this.AlarmTypeField = value;
-                    this.RaisePropertyChanged("AlarmType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Limit {
-            get {
-                return this.LimitField;
-            }
-            set {
-                if ((this.LimitField.Equals(value) != true)) {
-                    this.LimitField = value;
-                    this.RaisePropertyChanged("Limit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public AlarmDisplay.ServiceReference.Priority Priority {
-            get {
-                return this.PriorityField;
-            }
-            set {
-                if ((this.PriorityField.Equals(value) != true)) {
-                    this.PriorityField = value;
-                    this.RaisePropertyChanged("Priority");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Units {
-            get {
-                return this.UnitsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitsField, value) != true)) {
-                    this.UnitsField = value;
-                    this.RaisePropertyChanged("Units");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmType", Namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumerati" +
-        "on")]
-    public enum AlarmType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Low = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        High = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

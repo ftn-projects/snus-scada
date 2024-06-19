@@ -28,8 +28,6 @@
     <MetadataFile FileName="AlarmDisplay2.xsd" MetadataType="Schema" ID="de274641-1cfb-40df-9244-9ab3934da193" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/AlarmDisplay.svc?xsd=xsd3" />
     <MetadataFile FileName="AlarmDisplay3.xsd" MetadataType="Schema" ID="0f44b425-eb16-49f6-b980-81d1c4cc4ec1" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/AlarmDisplay.svc?xsd=xsd0" />
     <MetadataFile FileName="AlarmDisplay.wsdl" MetadataType="Wsdl" ID="819127e2-35da-46c9-a405-d6f7b1d92aa9" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/AlarmDisplay.svc?wsdl" />
-    <MetadataFile FileName="AlarmDisplay4.xsd" MetadataType="Schema" ID="7b52df9b-eb1e-4205-9258-59485dc0305b" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/AlarmDisplay.svc?xsd=xsd4" />
-    <MetadataFile FileName="AlarmDisplay5.xsd" MetadataType="Schema" ID="896fbca3-69eb-41b1-9e70-6549de2a4100" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/AlarmDisplay.svc?xsd=xsd5" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -173,7 +173,7 @@ namespace DatabaseManager.Infrastructure.View
         private void ListAnalogOutput(AnalogOutputTag[] tags)
         {
             Console.WriteLine("===================================");
-            Console.WriteLine("Analog input tags");
+            Console.WriteLine("Analog output tags");
             Console.WriteLine("===================================");
             foreach(var tag in tags)
             {
@@ -191,7 +191,7 @@ namespace DatabaseManager.Infrastructure.View
         private void ListDigitalInput(DigitalInputTag[] tags)
         {
             Console.WriteLine("===================================");
-            Console.WriteLine("Analog input tags");
+            Console.WriteLine("Digital input tags");
             Console.WriteLine("===================================");
             foreach(var tag in tags)
             {
@@ -209,7 +209,7 @@ namespace DatabaseManager.Infrastructure.View
         private void ListDigitalOutput(DigitalOutputTag[] tags)
         {
             Console.WriteLine("===================================");
-            Console.WriteLine("Analog input tags");
+            Console.WriteLine("Digital output tags");
             Console.WriteLine("===================================");
             foreach(var tag in tags)
             {

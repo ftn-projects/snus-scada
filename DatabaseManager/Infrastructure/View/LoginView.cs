@@ -41,8 +41,8 @@ namespace DatabaseManager.Infrastructure.View
         {
             AuthenticationManagerClient authManager = new AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
-            string username = InputUtils.ReadStringNotEmpty("Username:");
-            string password = InputUtils.ReadStringNotEmpty("Password:");
+            string username = InputUtils.ReadStringNotEmpty("Username: ");
+            string password = InputUtils.ReadStringNotEmpty("Password: ");
             string token = authManager.Login(username, password);
             if(string.IsNullOrEmpty(token)) 
             { 
@@ -55,8 +55,8 @@ namespace DatabaseManager.Infrastructure.View
         {
             AuthenticationManagerClient authManager = new AuthenticationManagerClient();
             Console.WriteLine("Please enter your credentials: ");
-            string username = InputUtils.ReadStringNotEmpty("Username:"); 
-            string password = InputUtils.ReadStringNotEmpty("Password:");
+            string username = InputUtils.ReadStringNotEmpty("Username: "); 
+            string password = InputUtils.ReadStringNotEmpty("Password: ");
             if(authManager.Register(username, password)) { Console.WriteLine("Registration successuful"); return; }
             Console.WriteLine("Registration failed");
 

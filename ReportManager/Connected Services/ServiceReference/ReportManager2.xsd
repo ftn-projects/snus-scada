@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
   <xs:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
+  <xs:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
   <xs:element name="GetAlarmsByPriority">
     <xs:complexType>
       <xs:sequence>
@@ -12,7 +13,75 @@
   <xs:element name="GetAlarmsByPriorityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q2:ArrayOfAlarm" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q2:ArrayOfAlarmInvocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmsInPeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlarmsInPeriodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q3:ArrayOfAlarmInvocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalInputTagValues">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDigitalInputTagValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" minOccurs="0" name="GetDigitalInputTagValuesResult" nillable="true" type="q4:ArrayOfInputTagValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalogInputTagValues">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalogInputTagValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" minOccurs="0" name="GetAnalogInputTagValuesResult" nillable="true" type="q5:ArrayOfInputTagValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInputTagValuesByTagName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInputTagValuesByTagNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" minOccurs="0" name="GetInputTagValuesByTagNameResult" nillable="true" type="q6:ArrayOfInputTagValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInputTagValuesByPeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="start" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="end" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInputTagValuesByPeriodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" minOccurs="0" name="GetInputTagValuesByPeriodResult" nillable="true" type="q7:ArrayOfInputTagValue" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -36,6 +36,7 @@ namespace SCADACore.Infrastructure.Domain.Tag
                 foreach (var alarm in Alarms)
                 {
                     XElement alarmXML = new XElement("Alarm");
+                    alarmXML.SetAttributeValue("Name", alarm.Name);
                     alarmXML.SetAttributeValue("AlarmType", alarm.AlarmType);
                     alarmXML.SetAttributeValue("Units", alarm.Units);
                     alarmXML.SetAttributeValue("Limit", alarm.Limit);

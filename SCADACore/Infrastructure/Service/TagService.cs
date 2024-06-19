@@ -1,4 +1,5 @@
-﻿using SCADACore.Infrastructure.Domain.Tag;
+﻿using System;
+using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 using System.Collections.Generic;
@@ -31,11 +32,18 @@ namespace SCADACore.Infrastructure.Service
 
         public bool ChangeOutputValue(string tagName, double newValue)
         {
-            List<OutputTag> outputTags = TagRepository.GetTypeOfTags<OutputTag>();
-            OutputTag tag = outputTags.Find(x => x.TagName == tagName);
-            if (tag == null) return false;
+            TagRepository.Tags.TryGetValue(tagName, out var tag);
+            if (!(tag is OutputTag outputTag))
+                return false;
             
-            tag.InitialValue = newValue;
+            if (outputTag is AnalogOutputTag analogOutputTag)
+            {
+                newValue = Math.Min(newValue, analogOutputTag.HighLimit);
+                newValue = Math.Max(newValue, analogOutputTag.LowLimit);
+            }
+
+            
+            outputTag.InitialValue = newValue;
             return TagRepository.SaveChanges();
         }
 
@@ -107,7 +115,7 @@ namespace SCADACore.Infrastructure.Service
             if (!(t is InputTag inputTag)) 
                 return false;
 
-            inputTag.Scan = false;
+            inputTag.Scan = true;
             return TagRepository.SaveChanges();
         }
     }

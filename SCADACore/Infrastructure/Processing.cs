@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using SCADACore.Infrastructure.Domain.Enumeration;
+using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 
@@ -61,7 +62,7 @@ namespace SCADACore.Infrastructure
             if (!Drivers.ContainsKey(tag.DriverType)) 
                 return previousValue;
 
-            var newValue = Drivers[tag.DriverType].ReadValue(tag.IOAddress);
+            var newValue = ReadValueFromDriver(tag);
 
             if (double.IsNaN(newValue))
                 return previousValue;
@@ -70,6 +71,18 @@ namespace SCADACore.Infrastructure
 
             OnValueRead?.Invoke(tag, newValue, DateTime.Now);
             return newValue;
+        }
+
+        private static double ReadValueFromDriver(InputTag tag)
+        {
+            var value = Drivers[tag.DriverType].ReadValue(tag.IOAddress);
+
+            if (!(tag is AnalogInputTag analog)) 
+                return value;
+            
+            // normalize within limits
+            value = Math.Min(value, analog.HighLimit);
+            return Math.Max(value, analog.LowLimit);
         }
     }
 }

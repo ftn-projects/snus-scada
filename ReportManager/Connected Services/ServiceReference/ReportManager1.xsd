@@ -27,11 +27,11 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Priority" nillable="true" type="tns:Priority" />
-  <xs:simpleType name="AlarmType">
+  <xs:simpleType name="DriverType">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="Low" />
-      <xs:enumeration value="High" />
+      <xs:enumeration value="Simulation" />
+      <xs:enumeration value="Realtime" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:element name="AlarmType" nillable="true" type="tns:AlarmType" />
+  <xs:element name="DriverType" nillable="true" type="tns:DriverType" />
 </xs:schema>

@@ -28,7 +28,8 @@ namespace SCADACore.Infrastructure
         {
             Processing.OnValueRead += CheckTagAlarm;
             Callback = OperationContext.Current.GetCallbackChannel<IAlarmDisplayCallback>();
-            OnAlarmInvoked += Callback.OnAlarmInvoked;
+            OnAlarmInvoked += (alarm) =>
+                Callback.OnAlarmInvoked(alarm);
         }
 
         private static void CheckTagAlarm(InputTag tag, double value, DateTime timestamp)

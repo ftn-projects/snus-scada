@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Enumeration" />
       <xsd:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Alarm" />
+      <xsd:import schemaLocation="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SCADACore.Infrastructure.Domain.Tag" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IReportManager_GetAlarmsByPriority_InputMessage">
@@ -14,16 +15,111 @@
   <wsdl:message name="IReportManager_GetAlarmsByPriority_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAlarmsByPriorityResponse" />
   </wsdl:message>
+  <wsdl:message name="IReportManager_GetAlarmsInPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmsInPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetAlarmsInPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlarmsInPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetDigitalInputTagValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalInputTagValues" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetDigitalInputTagValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDigitalInputTagValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetAnalogInputTagValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogInputTagValues" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetAnalogInputTagValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalogInputTagValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetInputTagValuesByTagName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputTagValuesByTagName" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetInputTagValuesByTagName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputTagValuesByTagNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetInputTagValuesByPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputTagValuesByPeriod" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_GetInputTagValuesByPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInputTagValuesByPeriodResponse" />
+  </wsdl:message>
   <wsdl:portType name="IReportManager">
     <wsdl:operation name="GetAlarmsByPriority">
       <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetAlarmsByPriority" message="tns:IReportManager_GetAlarmsByPriority_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetAlarmsByPriorityResponse" message="tns:IReportManager_GetAlarmsByPriority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmsInPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetAlarmsInPeriod" message="tns:IReportManager_GetAlarmsInPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetAlarmsInPeriodResponse" message="tns:IReportManager_GetAlarmsInPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalInputTagValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetDigitalInputTagValues" message="tns:IReportManager_GetDigitalInputTagValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetDigitalInputTagValuesResponse" message="tns:IReportManager_GetDigitalInputTagValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogInputTagValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetAnalogInputTagValues" message="tns:IReportManager_GetAnalogInputTagValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetAnalogInputTagValuesResponse" message="tns:IReportManager_GetAnalogInputTagValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInputTagValuesByTagName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetInputTagValuesByTagName" message="tns:IReportManager_GetInputTagValuesByTagName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetInputTagValuesByTagNameResponse" message="tns:IReportManager_GetInputTagValuesByTagName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInputTagValuesByPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/GetInputTagValuesByPeriod" message="tns:IReportManager_GetInputTagValuesByPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/GetInputTagValuesByPeriodResponse" message="tns:IReportManager_GetInputTagValuesByPeriod_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IReportManager" type="tns:IReportManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetAlarmsByPriority">
       <soap:operation soapAction="http://tempuri.org/IReportManager/GetAlarmsByPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlarmsInPeriod">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/GetAlarmsInPeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDigitalInputTagValues">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/GetDigitalInputTagValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalogInputTagValues">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/GetAnalogInputTagValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInputTagValuesByTagName">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/GetInputTagValuesByTagName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInputTagValuesByPeriod">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/GetInputTagValuesByPeriod" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

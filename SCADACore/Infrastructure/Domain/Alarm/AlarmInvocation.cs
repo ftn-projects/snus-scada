@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using SCADACore.Infrastructure.Domain.Enumeration;
-using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure.Domain.Alarm
 {

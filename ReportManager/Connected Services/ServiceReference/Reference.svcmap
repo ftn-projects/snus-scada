@@ -25,6 +25,7 @@
     <MetadataFile FileName="ReportManager.xsd" MetadataType="Schema" ID="71a074e8-156e-4cd1-aad2-87572ef3e695" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd3" />
     <MetadataFile FileName="ReportManager1.xsd" MetadataType="Schema" ID="adc31272-5d55-4adb-a98e-59e72afa3600" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd2" />
     <MetadataFile FileName="ReportManager.wsdl" MetadataType="Wsdl" ID="cfa8f179-cad1-42c5-857f-d94ce078daa9" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?wsdl" />
+    <MetadataFile FileName="ReportManager4.xsd" MetadataType="Schema" ID="c9a64344-6ebb-4b62-a054-f81468a4e89f" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd4" />
     <MetadataFile FileName="ReportManager2.xsd" MetadataType="Schema" ID="30ccc673-75f5-419f-96a3-f31bf8fb980c" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd0" />
     <MetadataFile FileName="ReportManager.disco" MetadataType="Disco" ID="5ab84877-508f-4a2c-8332-88af2abe554a" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?disco" />
     <MetadataFile FileName="ReportManager3.xsd" MetadataType="Schema" ID="1e6b3a74-fa22-4103-825f-7c1949b67005" SourceId="1" SourceUrl="http://localhost:51016/Infrastructure/ReportManager.svc?xsd=xsd1" />
