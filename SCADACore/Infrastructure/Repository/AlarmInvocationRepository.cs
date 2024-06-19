@@ -44,14 +44,19 @@ namespace SCADACore.Infrastructure.Repository
 
             using(var db = new AlarmInvocationContext())
             {
-                return db.AlarmInvocations.Where(a => a.Timestamp >= start && a.Timestamp <= end).ToList();
+                return db.AlarmInvocations.Where(a => a.Timestamp >= start && a.Timestamp <= end)
+                    .OrderBy(a => a.Priority)
+                    .ThenBy(a => a.Timestamp)
+                    .ToList();
             }
         }
         public static List<AlarmInvocation> GetAlarmsByPriority(Priority priority)
         {
             using (var db = new AlarmInvocationContext())
             {
-                return db.AlarmInvocations.Where(a => a.Priority == priority).ToList();
+                return db.AlarmInvocations.Where(a => a.Priority == priority)
+                    .OrderBy(a => a.Timestamp)
+                    .ToList();
             }
         }
     }

@@ -44,7 +44,9 @@ namespace SCADACore.Infrastructure.Repository
         {
             using (var db = new TagValueContext())
             {
-                return db.TagValues.Where(value => value.Timestamp >= start && value.Timestamp <= end).ToList();
+                return db.TagValues.Where(value => value.Timestamp >= start && value.Timestamp <= end)
+                    .OrderBy(x => x.Timestamp)
+                    .ToList();
             }
         }
         
@@ -52,7 +54,11 @@ namespace SCADACore.Infrastructure.Repository
         {
             using (var db = new TagValueContext())
             {
-                return db.TagValues.Where(value => value.InputTagType == tagType).ToList();
+                return db.TagValues.Where(value => value.InputTagType == tagType)
+                    .GroupBy(x => x.TagName)
+                    .Select(x => x.OrderByDescending(t => t.Timestamp).First())
+                    .OrderBy(x => x.Timestamp)
+                    .ToList();
             }
         }
         
@@ -60,7 +66,9 @@ namespace SCADACore.Infrastructure.Repository
         {
             using (var db = new TagValueContext())
             {
-                return db.TagValues.Where(value => value.TagName == tagName).ToList();
+                return db.TagValues.Where(value => value.TagName == tagName)
+                    .OrderBy(x => x.Value)
+                    .ToList();
             }
         }
     }
