@@ -18,8 +18,8 @@ namespace SCADACore.Infrastructure.Repository
         {
             using (var db = new TagValueContext())
             {
-                string type = tag is AnalogInputTag ? nameof(AnalogInputTag) : nameof(DigitalInputTag); // Mislim da moze bolje
-                db.TagValues.Add(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp, type));
+                // string type = tag is AnalogInputTag ? nameof(AnalogInputTag) : nameof(DigitalInputTag); Mislim da moze bolje
+                db.TagValues.Add(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp, tag.GetType().Name));
                 db.SaveChanges();
             }
         }
