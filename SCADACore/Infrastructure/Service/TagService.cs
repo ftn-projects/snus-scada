@@ -11,7 +11,7 @@ namespace SCADACore.Infrastructure.Service
     {
         public bool AddAlarmForTag(string tagName, Alarm alarm)
         {
-            Tag t = TagRepository.Tags[tagName];
+            TagRepository.Tags.TryGetValue(tagName, out var t);
             if(t is AnalogInputTag tag)
             {
                 if (tag.Alarms.Any(x => x.Name == alarm.Name)) return false;
@@ -41,10 +41,10 @@ namespace SCADACore.Infrastructure.Service
 
         public List<Alarm> GetAlarmsForTag(string tagName)
         {
-            Tag tag = TagRepository.Tags[tagName];
-            if(tag is AnalogInputTag analogInputTag)
+            TagRepository.Tags.TryGetValue(tagName, out var t);
+            if(t is AnalogInputTag analogInputTag)
             {
-                if(analogInputTag.Alarms != null && analogInputTag.Alarms.Count() > 0) return analogInputTag.Alarms;
+                if(analogInputTag.Alarms != null && analogInputTag.Alarms.Any()) return analogInputTag.Alarms;
                 return new List<Alarm>();
             }
             return new List<Alarm>();
@@ -74,7 +74,7 @@ namespace SCADACore.Infrastructure.Service
 
         public bool RemoveAlarmForTag(string tagName, string alarmName)
         {
-            Tag t = TagRepository.Tags[tagName];
+            TagRepository.Tags.TryGetValue(tagName, out var t);
             if(t is AnalogInputTag tag)
             {
                 Alarm a = tag.Alarms.Find(x => x.Name == alarmName);
@@ -93,8 +93,8 @@ namespace SCADACore.Infrastructure.Service
 
         public bool TurnScanOff(string tagName)
         {
-            var tag = TagRepository.Tags[tagName];
-            if (!(tag is InputTag inputTag)) 
+            TagRepository.Tags.TryGetValue(tagName, out var t);
+            if (!(t is InputTag inputTag)) 
                 return false;
             
             inputTag.Scan = false;
@@ -103,8 +103,8 @@ namespace SCADACore.Infrastructure.Service
 
         public bool TurnScanOn(string tagName)
         {
-            var tag = TagRepository.Tags[tagName];
-            if (!(tag is InputTag inputTag)) 
+            TagRepository.Tags.TryGetValue(tagName, out var t);
+            if (!(t is InputTag inputTag)) 
                 return false;
 
             inputTag.Scan = false;

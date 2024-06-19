@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using SCADACore.Infrastructure.Domain.Tag;
 
@@ -7,9 +8,11 @@ namespace SCADACore.Infrastructure.Domain.Alarm
     [DataContract]
     public class AlarmInvocation
     {
+        [Key]
+        public int Id { get; set; }
         [DataMember]
         public string Name { get; set; }
-        [DataMember] 
+        [DataMember]
         public AnalogInputTag Tag { get; set; }
         [DataMember]
         public double Limit { get; set; }

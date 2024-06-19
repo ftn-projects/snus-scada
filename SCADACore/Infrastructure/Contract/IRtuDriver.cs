@@ -2,7 +2,7 @@
 
 namespace SCADACore.Infrastructure.Contract
 {
-    [ServiceContract]
+    [ServiceContract(SessionMode = SessionMode.Required)]
     public interface IRtuDriver
     {
         [OperationContract(IsInitiating = true)]

@@ -12,7 +12,7 @@ namespace RealTimeUnit.ServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IRtuDriver")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IRtuDriver", SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IRtuDriver {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRtuDriver/InitRtuDriver", ReplyAction="http://tempuri.org/IRtuDriver/InitRtuDriverResponse")]

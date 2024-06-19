@@ -6,11 +6,14 @@ namespace SCADACore.Infrastructure
 {
     public class Trending : ITrending
     {
+        private ITrendingCallback Callback { get; set; }
+        
         public void InitTrending()
         {
+            Callback = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
+
             Processing.OnValueRead += (tag, value, timestamp) => 
-                OperationContext.Current.GetCallbackChannel<ITrendingCallback>()
-                    .OnTrendingTagPrint(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
+               Callback.OnTrendingTagPrint(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
         }
     }
 }

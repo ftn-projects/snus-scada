@@ -98,22 +98,34 @@ namespace SCADACore.Infrastructure
         public bool RemoveTag(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+
+            var found = TagService.RemoveTag(tagName);
+            if (!found) return false;
+
             Processing.RemoveTagScan(tagName);
-            return TagService.RemoveTag(tagName);
+            return true;
         }
 
         public bool TurnScanOff(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+
+            var found = TagService.TurnScanOff(tagName);
+            if (!found) return false;
+
             Processing.RemoveTagScan(tagName);
-            return TagService.TurnScanOff(tagName);
+            return true;
         }
 
         public bool TurnScanOn(string token, string tagName)
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
+            
+            var found = TagService.TurnScanOn(tagName);
+            if (!found) return false;
+
             Processing.AddTagScan((InputTag)TagRepository.Tags[tagName]);
-            return TagService.TurnScanOn(tagName);
+            return true;
         }
     }
 }
