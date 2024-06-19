@@ -48,7 +48,7 @@ namespace SCADACore.Infrastructure
                 if (delta == 0.0)
                     return;
 
-                var invocation = new AlarmInvocation(a.Name, analogTag, a.Limit, delta, a.Units, timestamp);
+                var invocation = new AlarmInvocation(a.Name, analogTag.TagName, a.Limit, delta, a.Units, timestamp, a.Priority);
                 for (var _ = 0; _ < (int) a.Priority; _++)
                     OnAlarmInvoked?.Invoke(invocation);
             });

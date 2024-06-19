@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using SCADACore.Infrastructure.Domain.Enumeration;
 using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure.Domain.Alarm
@@ -12,10 +13,12 @@ namespace SCADACore.Infrastructure.Domain.Alarm
         public int Id { get; set; }
         [DataMember]
         public string Name { get; set; }
-        [DataMember]
-        public AnalogInputTag Tag { get; set; }
+        [DataMember] 
+        public string TagName { get; set; }
         [DataMember]
         public double Limit { get; set; }
+        [DataMember]
+        public Priority Priority { get; set; }
         [DataMember]
         public double LimitDeltaValue { get; set; }  // (+3), (-5)...
         [DataMember] 
@@ -25,18 +28,19 @@ namespace SCADACore.Infrastructure.Domain.Alarm
 
         public override string ToString()
         {
-            return $"[{Timestamp}] alarm: {Name}, tag: {Tag.TagName}, value: {Limit + LimitDeltaValue} " +
+            return $"[{Timestamp}] alarm: {Name}, tag: {TagName}, value: {Limit + LimitDeltaValue} " +
                    $"({(LimitDeltaValue > 0 ? "+" : "")}{LimitDeltaValue}) {Units}";
         }
 
-        public AlarmInvocation(string name, AnalogInputTag tag, double limit, double limitDeltaValue, string units, DateTime timestamp)
+        public AlarmInvocation(string name, string tagName, double limit, double limitDeltaValue, string units, DateTime timestamp, Priority priority)
         {
             Name = name;
-            Tag = tag;
+            TagName = tagName;
             Limit = limit;
             LimitDeltaValue = limitDeltaValue;
             Units = units;
             Timestamp = timestamp;
+            Priority = priority;
         }
     }
 }

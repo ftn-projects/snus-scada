@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SCADACore.Infrastructure.Domain.Alarm;
+using SCADACore.Infrastructure.Domain.Enumeration;
 
 namespace SCADACore.Infrastructure.Repository
 {
@@ -34,6 +36,22 @@ namespace SCADACore.Infrastructure.Repository
             using (var db = new TagValueContext())
             {
                 db.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE [AlarmInvocations]");
+            }
+        }
+
+        public static List<AlarmInvocation> GetAlarmsInPeriod(DateTime start, DateTime end)
+        {
+
+            using(var db = new AlarmInvocationContext())
+            {
+                return db.AlarmInvocations.Where(a => a.Timestamp >= start && a.Timestamp <= end).ToList();
+            }
+        }
+        public static List<AlarmInvocation> GetAlarmsByPriority(Priority priority)
+        {
+            using (var db = new AlarmInvocationContext())
+            {
+                return db.AlarmInvocations.Where(a => a.Priority == priority).ToList();
             }
         }
     }

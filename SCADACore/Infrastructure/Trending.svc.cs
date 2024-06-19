@@ -13,7 +13,7 @@ namespace SCADACore.Infrastructure
             Callback = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
 
             Processing.OnValueRead += (tag, value, timestamp) => 
-               Callback.OnTrendingTagPrint(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
+               Callback.OnTrendingTagPrint(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp, tag.GetType().Name));
         }
     }
 }

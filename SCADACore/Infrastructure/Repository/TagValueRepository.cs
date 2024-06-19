@@ -18,7 +18,8 @@ namespace SCADACore.Infrastructure.Repository
         {
             using (var db = new TagValueContext())
             {
-                db.TagValues.Add(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp));
+                string type = tag is AnalogInputTag ? nameof(AnalogInputTag) : nameof(DigitalInputTag); // Mislim da moze bolje
+                db.TagValues.Add(new InputTagValue(tag.TagName, tag.DriverType, value, timestamp, type));
                 db.SaveChanges();
             }
         }
@@ -36,6 +37,30 @@ namespace SCADACore.Infrastructure.Repository
             using (var db = new TagValueContext())
             {
                 db.Database.ExecuteSqlCommandAsync("TRUNCATE TABLE [InputTagValues]");
+            }
+        }
+        
+        public static List<InputTagValue> GetValuesInPeriod(DateTime start, DateTime end)
+        {
+            using (var db = new TagValueContext())
+            {
+                return db.TagValues.Where(value => value.Timestamp >= start && value.Timestamp <= end).ToList();
+            }
+        }
+        
+        public static List<InputTagValue> GetValuesByTagType(string tagType)
+        {
+            using (var db = new TagValueContext())
+            {
+                return db.TagValues.Where(value => value.InputTagType == tagType).ToList();
+            }
+        }
+        
+        public static List<InputTagValue> GetValuesByTagName(string tagName)
+        {
+            using (var db = new TagValueContext())
+            {
+                return db.TagValues.Where(value => value.TagName == tagName).ToList();
             }
         }
     }

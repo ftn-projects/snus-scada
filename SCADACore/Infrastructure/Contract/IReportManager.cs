@@ -1,10 +1,9 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
 using System.Collections.Generic;
 using System.ServiceModel;
-using SCADACore.Infrastructure.Domain;
 using SCADACore.Infrastructure.Domain.Alarm;
 using SCADACore.Infrastructure.Domain.Enumeration;
-using SCADACore.Infrastructure.Domain.Tag.Abstraction;
+using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure.Contract
 {
@@ -12,6 +11,16 @@ namespace SCADACore.Infrastructure.Contract
     public interface IReportManager
     {
         [OperationContract]
-        List<Alarm> GetAlarmsByPriority(Priority priority);
+        List<AlarmInvocation> GetAlarmsByPriority(Priority priority);
+        [OperationContract]
+        List<AlarmInvocation> GetAlarmsInPeriod(DateTime start, DateTime end);
+        [OperationContract]
+        List<InputTagValue> GetDigitalInputTagValues();
+        [OperationContract]
+        List<InputTagValue> GetAnalogInputTagValues();
+        [OperationContract]
+        List<InputTagValue> GetInputTagValuesByTagName(string tagName);
+        [OperationContract]
+        List<InputTagValue> GetInputTagValuesByPeriod(DateTime start, DateTime end);
     }
 }

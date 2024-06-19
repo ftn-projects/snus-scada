@@ -14,18 +14,21 @@ namespace SCADACore.Infrastructure.Domain.Tag
         [DataMember]
         public string TagName { get; set; }
         [DataMember]
+        public string InputTagType { get; set; }
+        [DataMember]
         public DriverType DriverType { get; set; }
         [DataMember]
         public double Value { get; set; }
         [DataMember]
         public DateTime Timestamp { get; set; }
 
-        public InputTagValue(string tagName, DriverType driverType, double value, DateTime timestamp)
+        public InputTagValue(string tagName, DriverType driverType, double value, DateTime timestamp, string inputTagType)
         {
             TagName = tagName;
             DriverType = driverType;
             Value = value;
             Timestamp = timestamp;
+            InputTagType = inputTagType;    
         }
     }
 }
