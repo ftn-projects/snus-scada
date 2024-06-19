@@ -6,6 +6,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
+using SCADACore.Infrastructure.Domain.Alarm;
 using SCADACore.Infrastructure.Domain.Tag;
 
 namespace SCADACore.Infrastructure.Repository
@@ -113,7 +114,7 @@ namespace SCADACore.Infrastructure.Repository
                          AlarmType = EnumUtils.ParseEnum<AlarmType>(alarm.Attribute("AlarmType").Value),
                          Priority = EnumUtils.ParseEnum<Priority>(alarm.Attribute("Priority").Value),
                          Units = alarm.Attribute("Units").Value,
-                         LimitValue = Convert.ToDouble(alarm.Attribute("Limit").Value)
+                         Limit = Convert.ToDouble(alarm.Attribute("Limit").Value)
                      }).ToList();
         }
         

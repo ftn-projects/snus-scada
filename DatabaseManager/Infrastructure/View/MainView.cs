@@ -1,8 +1,6 @@
 ﻿using DatabaseManager.ServiceReference;
 using System;
-using Infrastructure.Service.Utils;
-using System.Collections.Generic;
-using System.Linq;
+using DatabaseManager.Infrastructure.Service;
 
 namespace DatabaseManager.Infrastructure.View
 {

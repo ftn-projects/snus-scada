@@ -1,6 +1,7 @@
 ﻿using SCADACore.Infrastructure.Domain;
 using System.Collections.Generic;
 using System.ServiceModel;
+using SCADACore.Infrastructure.Domain.Alarm;
 
 namespace SCADACore.Infrastructure.Contract
 {

@@ -52,7 +52,7 @@ namespace SCADACore.Infrastructure.Service
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
-                } catch(Exception ex)
+                } catch(Exception)
                 {
                     return false;
                 }

@@ -3,6 +3,7 @@ using SCADACore.Infrastructure.Domain.Tag;
 using SCADACore.Infrastructure.Service;
 using System.Collections.Generic;
 using SCADACore.Infrastructure.Contract;
+using SCADACore.Infrastructure.Domain.Alarm;
 using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using SCADACore.Infrastructure.Repository;
 

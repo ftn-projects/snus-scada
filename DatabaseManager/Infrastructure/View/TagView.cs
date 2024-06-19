@@ -1,6 +1,6 @@
 ﻿using DatabaseManager.ServiceReference;
-using Infrastructure.Service.Utils;
 using System;
+using DatabaseManager.Infrastructure.Service;
 
 namespace DatabaseManager.Infrastructure.View
 {

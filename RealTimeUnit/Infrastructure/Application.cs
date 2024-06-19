@@ -10,6 +10,7 @@ namespace RealTimeUnit.Infrastructure
     public class Application
     {
         private Mode _mode;
+        private string _name;
         private int _ioAddress;
         private double _lowestValue;
         private double _highestValue;
