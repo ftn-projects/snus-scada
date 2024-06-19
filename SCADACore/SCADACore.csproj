@@ -135,6 +135,7 @@
       <DependentUpon>Trending.svc</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Utils\AlarmInvocationLogger.cs" />
+    <Compile Include="Infrastructure\Utils\ApplicationConfig.cs" />
     <Compile Include="Infrastructure\Utils\DataEncryptionUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

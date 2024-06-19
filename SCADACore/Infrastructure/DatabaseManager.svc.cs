@@ -24,7 +24,8 @@ namespace SCADACore.Infrastructure
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
             TagService.AddTag(analogInputTag);
-            Processing.AddTagScan(analogInputTag);
+            if (analogInputTag.Scan) 
+                Processing.AddTagScan(analogInputTag);
             return true;
         }
 
@@ -39,7 +40,8 @@ namespace SCADACore.Infrastructure
         {
             if (!AuthenticationService.IsAuthenticated(token)) return false;
             TagService.AddTag(digitalInputTag);
-            Processing.AddTagScan(digitalInputTag);
+            if (digitalInputTag.Scan)
+                Processing.AddTagScan(digitalInputTag);
             return true;
         }
 

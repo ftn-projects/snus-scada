@@ -4,25 +4,33 @@ using SCADACore.Infrastructure.Domain.Tag.Abstraction;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using SCADACore.Infrastructure.Domain.Alarm;
 using SCADACore.Infrastructure.Domain.Tag;
+using SCADACore.Infrastructure.Utils;
 
 namespace SCADACore.Infrastructure.Repository
 {
     public static class TagRepository
     {
-        private const string DataUrl = "C:\\Fakultet\\Semestar 6\\Softver Nadzorno-Upravljackih Sistema\\projekat\\snus-scada\\SCADACore\\App_Data\\scadaConfig.xml";
+        private static readonly string DataUrl = ApplicationConfig.ScadaConfig;
 
         public static ConcurrentDictionary<string, Tag> Tags { get; } = new ConcurrentDictionary<string, Tag>();
 
-        static TagRepository() 
+        static TagRepository()
         {
-            LoadAnalogInputTags();
-            LoadAnalogOutputTags();
-            LoadDigitalInputTags();
-            LoadDigitalOutputTags();
+            try
+            {
+                LoadAnalogInputTags();
+                LoadAnalogOutputTags();
+                LoadDigitalInputTags();
+                LoadDigitalOutputTags();
+            }
+            catch (FileNotFoundException)
+            {
+            }
 
             GetTypeOfTags<InputTag>()
                 .Where(t => t.Scan).ToList()

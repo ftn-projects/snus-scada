@@ -5,7 +5,7 @@ namespace SCADACore.Infrastructure.Utils
 {
     public class AlarmInvocationLogger
     {
-        private const string LogPath = "alarmsLog.txt";
+        private static readonly string LogPath = ApplicationConfig.AlarmsLog;
 
         public static void Log(AlarmInvocation alarm)
         {
