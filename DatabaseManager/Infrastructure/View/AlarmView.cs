@@ -55,7 +55,7 @@ namespace DatabaseManager.Infrastructure.View
             alarm.Name = InputUtils.ReadStringNotEmpty("Alarm name (must be unique):");
             alarm.AlarmType = InputUtils.ReadOption<AlarmType>(new AlarmType[] { AlarmType.Low, AlarmType.High }, "Select the alarm's type");
             alarm.Priority = InputUtils.ReadOption<Priority>(new Priority[] {Priority.Low, Priority.Medium, Priority.High}, "Select the alarm's priority");
-            alarm.LimitValue = InputUtils.ReadDouble("Limit value:");
+            alarm.Limit = InputUtils.ReadDouble("Limit value:");
             alarm.Units = InputUtils.ReadStringNotEmpty("Units:");
             AlarmManagerClient client = new AlarmManagerClient();
             if(client.AddAlarmForTag(Token, tagName, alarm)) { Console.WriteLine("New alarm added to the tag"); return; }
@@ -83,7 +83,7 @@ namespace DatabaseManager.Infrastructure.View
             {
                 Console.WriteLine($"\nAlarm name: {alarm.Name}");                
                 Console.WriteLine($"Alarm type: {alarm.AlarmType}");                
-                Console.WriteLine($"Limit value: {alarm.LimitValue}");
+                Console.WriteLine($"Limit value: {alarm.Limit}");
                 Console.WriteLine($"Units: {alarm.Units}");
                 Console.WriteLine($"Priority: {alarm.Priority}\n");                
             }
