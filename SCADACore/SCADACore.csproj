@@ -78,7 +78,6 @@
     <Content Include="Infrastructure\ReportManager.svc" />
     <Content Include="Infrastructure\RtuDriver.svc" />
     <Content Include="Infrastructure\Trending.svc" />
-    <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -137,10 +136,6 @@
     </Compile>
     <Compile Include="Infrastructure\Utils\AlarmInvocationLogger.cs" />
     <Compile Include="Infrastructure\Utils\DataEncryptionUtils.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
